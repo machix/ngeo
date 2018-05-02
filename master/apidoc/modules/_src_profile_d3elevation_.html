@@ -1,0 +1,369 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>&quot;src/profile/d3Elevation&quot; | ngeo</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.js" data-base="..">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="../index.html" class="title">ngeo</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+							<input type="checkbox" id="tsd-filter-only-exported" />
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="../globals.html">Globals</a>
+				</li>
+				<li>
+					<a href="_src_profile_d3elevation_.html">&quot;src/profile/d3Elevation&quot;</a>
+				</li>
+			</ul>
+			<h1>External module &quot;src/profile/d3Elevation&quot;</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<section class="tsd-panel-group tsd-index-group">
+				<h2>Index</h2>
+				<section class="tsd-panel tsd-index-panel">
+					<div class="tsd-index-content">
+						<section class="tsd-index-section ">
+							<h3>Functions</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_src_profile_d3elevation_.html#exports" class="tsd-kind-icon">exports</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section tsd-is-not-exported">
+							<h3>Object literals</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-object-literal tsd-parent-kind-external-module tsd-is-not-exported"><a href="_src_profile_d3elevation_.html#d3" class="tsd-kind-icon">d3</a></li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Functions</h2>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="exports" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> exports</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">exports<span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/camptocamp/ngeo/blob/5955c23/src/profile/d3Elevation.js#L78">src/profile/d3Elevation.js:78</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Provides a D3js component to be used to draw an elevation
+									profile chart.</p>
+								</div>
+								<pre><code><span class="hljs-keyword">let</span> selection = d3.select(<span class="hljs-string">'#element_id'</span>);
+<span class="hljs-keyword">let</span> profile = ngeo.profile.d3Elevation({
+  <span class="hljs-attribute">distanceExtractor</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">item</span>) </span>{<span class="hljs-keyword">return</span> item[<span class="hljs-string">'dist'</span>];},
+  <span class="hljs-attribute">linesConfiguration</span>: {
+    <span class="hljs-string">'lineZ1'</span>: {
+      <span class="hljs-attribute">zExtractor</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">item</span>) </span>{<span class="hljs-keyword">return</span> item[<span class="hljs-string">'values'</span>][<span class="hljs-string">'z1'</span>];}
+    },
+    <span class="hljs-string">'lineZ2'</span>: {
+      <span class="hljs-attribute">color</span>: <span class="hljs-string">'#00F'</span>,
+      <span class="hljs-attribute">zExtractor</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">item</span>) </span>{<span class="hljs-keyword">return</span> item[<span class="hljs-string">'values'</span>][<span class="hljs-string">'z2'</span>];}
+    }
+  },
+  <span class="hljs-attribute">hoverCallback</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">point, dist, xUnits, elevations, yUnits</span>) </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">point</span>.x, <span class="hljs-built_in">point</span>.y);
+  },
+  <span class="hljs-attribute">outCallback</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"out"</span>);
+  }
+});
+selection.datum(data).call(profile);</code></pre><p>The selection data must be an array.
+									The layout for the items of this array is unconstrained: the distance values
+									is extracted using the distanceExtractor config option and multiples z values
+									can be displayed by providing multiple linesConfiguration with its specific
+									zExtractor.
+									Optionally you can provide a color in your linesConfiguration. A line without
+									color will be red. Each linesConfiguration name is used as class for its
+									respective line. So you can pass a styleDefs config option (inline css) to
+									customize the line or all the chart.
+									Optionally, POIs can be displayed and depend on a poiExtractor
+								config option.</p>
+								<p>The data below will work for the above example:</p>
+								<pre><code>[
+    {
+        <span class="hljs-attr">"y"</span>: <span class="hljs-number">199340</span>,
+        <span class="hljs-attr">"values"</span>: {<span class="hljs-attr">"z1"</span>: <span class="hljs-number">788.7</span>, <span class="hljs-attr">"z2"</span>: <span class="hljs-number">774.2</span>},
+        <span class="hljs-attr">"dist"</span>: <span class="hljs-number">0.0</span>,
+        <span class="hljs-attr">"x"</span>: <span class="hljs-number">541620</span>
+    }, ...
+]</code></pre>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>options: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>Profile options.</p>
+										</div>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+							<p>D3js component.</p>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group tsd-is-not-exported">
+				<h2>Object literals</h2>
+				<section class="tsd-panel tsd-member tsd-kind-object-literal tsd-parent-kind-external-module tsd-is-not-exported">
+					<a name="d3" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> d3</h3>
+					<div class="tsd-signature tsd-kind-icon">d3<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/camptocamp/ngeo/blob/5955c23/src/profile/d3Elevation.js#L12">src/profile/d3Elevation.js:12</a></li>
+						</ul>
+					</aside>
+					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal tsd-is-not-exported">
+						<a name="d3.area" class="tsd-anchor"></a>
+						<h3>area</h3>
+						<div class="tsd-signature tsd-kind-icon">area<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">area</span></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/camptocamp/ngeo/blob/5955c23/src/profile/d3Elevation.js#L21">src/profile/d3Elevation.js:21</a></li>
+							</ul>
+						</aside>
+					</section>
+					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal tsd-is-not-exported">
+						<a name="d3.axisbottom" class="tsd-anchor"></a>
+						<h3>axis<wbr>Bottom</h3>
+						<div class="tsd-signature tsd-kind-icon">axis<wbr>Bottom<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">axisBottom</span></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/camptocamp/ngeo/blob/5955c23/src/profile/d3Elevation.js#L15">src/profile/d3Elevation.js:15</a></li>
+							</ul>
+						</aside>
+					</section>
+					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal tsd-is-not-exported">
+						<a name="d3.axisleft" class="tsd-anchor"></a>
+						<h3>axis<wbr>Left</h3>
+						<div class="tsd-signature tsd-kind-icon">axis<wbr>Left<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">axisLeft</span></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/camptocamp/ngeo/blob/5955c23/src/profile/d3Elevation.js#L16">src/profile/d3Elevation.js:16</a></li>
+							</ul>
+						</aside>
+					</section>
+					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal tsd-is-not-exported">
+						<a name="d3.bisector" class="tsd-anchor"></a>
+						<h3>bisector</h3>
+						<div class="tsd-signature tsd-kind-icon">bisector<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">bisector</span></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/camptocamp/ngeo/blob/5955c23/src/profile/d3Elevation.js#L13">src/profile/d3Elevation.js:13</a></li>
+							</ul>
+						</aside>
+					</section>
+					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal tsd-is-not-exported">
+						<a name="d3.extent" class="tsd-anchor"></a>
+						<h3>extent</h3>
+						<div class="tsd-signature tsd-kind-icon">extent<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">extent</span></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/camptocamp/ngeo/blob/5955c23/src/profile/d3Elevation.js#L14">src/profile/d3Elevation.js:14</a></li>
+							</ul>
+						</aside>
+					</section>
+					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal tsd-is-not-exported">
+						<a name="d3.line" class="tsd-anchor"></a>
+						<h3>line</h3>
+						<div class="tsd-signature tsd-kind-icon">line<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">line</span></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/camptocamp/ngeo/blob/5955c23/src/profile/d3Elevation.js#L22">src/profile/d3Elevation.js:22</a></li>
+							</ul>
+						</aside>
+					</section>
+					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal tsd-is-not-exported">
+						<a name="d3.mouse" class="tsd-anchor"></a>
+						<h3>mouse</h3>
+						<div class="tsd-signature tsd-kind-icon">mouse<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">mouse</span></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/camptocamp/ngeo/blob/5955c23/src/profile/d3Elevation.js#L18">src/profile/d3Elevation.js:18</a></li>
+							</ul>
+						</aside>
+					</section>
+					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal tsd-is-not-exported">
+						<a name="d3.scalelinear" class="tsd-anchor"></a>
+						<h3>scale<wbr>Linear</h3>
+						<div class="tsd-signature tsd-kind-icon">scale<wbr>Linear<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">scaleLinear</span></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/camptocamp/ngeo/blob/5955c23/src/profile/d3Elevation.js#L17">src/profile/d3Elevation.js:17</a></li>
+							</ul>
+						</aside>
+					</section>
+					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal tsd-is-not-exported">
+						<a name="d3.select" class="tsd-anchor"></a>
+						<h3>select</h3>
+						<div class="tsd-signature tsd-kind-icon">select<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">select</span></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/camptocamp/ngeo/blob/5955c23/src/profile/d3Elevation.js#L19">src/profile/d3Elevation.js:19</a></li>
+							</ul>
+						</aside>
+					</section>
+					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal tsd-is-not-exported">
+						<a name="d3.selectall" class="tsd-anchor"></a>
+						<h3>select<wbr>All</h3>
+						<div class="tsd-signature tsd-kind-icon">select<wbr>All<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">selectAll</span></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/camptocamp/ngeo/blob/5955c23/src/profile/d3Elevation.js#L20">src/profile/d3Elevation.js:20</a></li>
+							</ul>
+						</aside>
+					</section>
+				</section>
+			</section>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="globals  ">
+						<a href="../globals.html"><em>Globals</em></a>
+					</li>
+					<li class="current tsd-kind-external-module">
+						<a href="_src_profile_d3elevation_.html">"src/profile/d3<wbr>Elevation"</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="_src_profile_d3elevation_.html#exports" class="tsd-kind-icon">exports</a>
+					</li>
+					<li class=" tsd-kind-object-literal tsd-parent-kind-external-module tsd-is-not-exported">
+						<a href="_src_profile_d3elevation_.html#d3" class="tsd-kind-icon">d3</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-module"><span class="tsd-kind-icon">Module</span></li>
+				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
+				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+				<li class="tsd-kind-enum-member"><span class="tsd-kind-icon">Enumeration member</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-enum"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-enum"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-interface"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-interface"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class"><span class="tsd-kind-icon">Accessor</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-class"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
+				<li class="tsd-kind-call-signature tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="../assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="../assets/js/search.js"><' + '/script>');</script>
+</body>
+</html>

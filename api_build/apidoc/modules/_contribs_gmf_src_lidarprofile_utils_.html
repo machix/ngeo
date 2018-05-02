@@ -1,0 +1,215 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>&quot;contribs/gmf/src/lidarprofile/Utils&quot; | ngeo</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.js" data-base="..">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="../index.html" class="title">ngeo</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+							<input type="checkbox" id="tsd-filter-only-exported" />
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="../globals.html">Globals</a>
+				</li>
+				<li>
+					<a href="_contribs_gmf_src_lidarprofile_utils_.html">&quot;contribs/gmf/src/lidarprofile/Utils&quot;</a>
+				</li>
+			</ul>
+			<h1>External module &quot;contribs/gmf/src/lidarprofile/Utils&quot;</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<section class="tsd-panel-group tsd-index-group">
+				<h2>Index</h2>
+				<section class="tsd-panel tsd-index-panel">
+					<div class="tsd-index-content">
+						<section class="tsd-index-section ">
+							<h3>Variables</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-variable tsd-parent-kind-external-module"><a href="_contribs_gmf_src_lidarprofile_utils_.html#exports" class="tsd-kind-icon">exports</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section tsd-is-not-exported">
+							<h3>Object literals</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-object-literal tsd-parent-kind-external-module tsd-is-not-exported"><a href="_contribs_gmf_src_lidarprofile_utils_.html#d3" class="tsd-kind-icon">d3</a></li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Variables</h2>
+				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-external-module">
+					<a name="exports" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> exports</h3>
+					<div class="tsd-signature tsd-kind-icon">exports<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">exports</span><span class="tsd-signature-symbol"> =&nbsp;class {/*** Clip a linstring with start and end measure given by D3 Chart domain* @param {gmf.lidarprofile.Config} config the LIDAR profile config instance* @param {number} map_resolution the current resolution of the map* @param {ol.geom.LineString} linestring an OpenLayer Linestring* @param {number} dLeft domain minimum* @param {number} dRight domain maximum* @return {{clippedLine: Array.&lt;ol.Coordinate&gt;, distanceOffset: number}} Object with clipped lined coordinates and left domain value*/clipLineByMeasure(config, map_resolution, linestring, dLeft, dRight) {const clippedLine &#x3D; new olGeomLineString([]);let mileage_start &#x3D; 0;let mileage_end &#x3D; 0;const totalLength &#x3D; linestring.getLength();const fractionStart &#x3D; dLeft / totalLength;const fractionEnd &#x3D; dRight / totalLength;let segNumber &#x3D; linestring.getCoordinates().length - 1;let counter &#x3D; 0;linestring.forEachSegment((segStart, segEnd) &#x3D;&gt; {counter +&#x3D; 1;const segLine &#x3D; new olGeomLineString([segStart, segEnd]);mileage_end +&#x3D; segLine.getLength();if (dLeft &#x3D;&#x3D; mileage_start) {clippedLine.appendCoordinate(segStart);} else if (dLeft &gt; mileage_start &amp;&amp; dLeft &lt; mileage_end) {clippedLine.appendCoordinate(linestring.getCoordinateAt(fractionStart));}if (mileage_start &gt; dLeft &amp;&amp; mileage_start &lt; dRight) {clippedLine.appendCoordinate(segStart);}if (dRight &#x3D;&#x3D; mileage_end) {clippedLine.appendCoordinate(segEnd);} else if (dRight &gt; mileage_start &amp;&amp; dRight &lt; mileage_end) {clippedLine.appendCoordinate(linestring.getCoordinateAt(fractionEnd));} else if (dRight &gt; mileage_start &amp;&amp; dRight &gt; mileage_end &amp;&amp; counter &#x3D;&#x3D;&#x3D; segNumber) {clippedLine.appendCoordinate(linestring.getCoordinateAt(fractionEnd));}mileage_start +&#x3D; segLine.getLength();});const feat &#x3D; new olFeature({geometry: clippedLine});const lineStyle &#x3D; new olStyleStyle({stroke: new olStyleStroke({color: &#x27;rgba(255,0,0,1)&#x27;,width: 2,lineCap: &#x27;square&#x27;})});let firstSegmentAngle &#x3D; 0;let lastSegementAngle &#x3D; 0;segNumber &#x3D; clippedLine.getCoordinates().length - 1;let segCounter &#x3D; 1;clippedLine.forEachSegment((start, end) &#x3D;&gt; {if (segCounter &#x3D;&#x3D; 1) {const dx &#x3D; end[0] - start[0];const dy &#x3D; end[1] - start[1];firstSegmentAngle &#x3D; Math.atan2(dx, dy);}if (segCounter &#x3D;&#x3D; segNumber) {const dx &#x3D; end[0] - start[0];const dy &#x3D; end[1] - start[1];lastSegementAngle &#x3D; Math.atan2(dx, dy);}segCounter +&#x3D; 1;});const styles &#x3D; [lineStyle];const lineEnd &#x3D; clippedLine.getLastCoordinate();const lineStart &#x3D; clippedLine.getFirstCoordinate();styles.push(new olStyleStyle({geometry: new olGeomPoint(lineStart),image: new olStyleRegularShape({fill: new olStyleFill({color: &#x27;rgba(255, 0, 0, 1)&#x27;}),stroke: new olStyleStroke({color: &#x27;rgba(255,0,0,1)&#x27;,width: 1,lineCap: &#x27;square&#x27;}),points: 3,radius: 5,rotation: firstSegmentAngle,angle: Math.PI / 3})}),new olStyleStyle({geometry: new olGeomPoint(lineEnd),image: new olStyleRegularShape({fill: new olStyleFill({color: &#x27;rgba(255, 0, 0, 1)&#x27;}),stroke: new olStyleStroke({color: &#x27;rgba(255,0,0,1)&#x27;,width: 1,lineCap: &#x27;square&#x27;}),points: 3,radius: 5,rotation: lastSegementAngle,angle: 4 * Math.PI / 3})}));return {clippedLine: clippedLine.getCoordinates(),distanceOffset: dLeft,bufferGeom: feat,bufferStyle: styles};}/*** Get a Level Of Details and with for a given chart span* Configuration is set up in Pytree configuration* @param {number} span domain extent* @param {lidarprofileServer.ConfigLevels} max_levels levels defined by a LIDAR server* @return {{maxLOD: number, width: number}} Object with optimized Level Of Details and width for this profile span*/getNiceLOD(span, max_levels) {let maxLOD &#x3D; 0;let width &#x3D; 0;for (const key in max_levels) {const level &#x3D; parseInt(key, 10);if (span &lt; level &amp;&amp; max_levels[level].max &gt; maxLOD) {maxLOD &#x3D; max_levels[level].max;width &#x3D; max_levels[level].width;}}return {maxLOD,width};}/*** Create a image file by combining SVG and canvas elements and let the user downloads it.* @param {gmfx.LidarprofileClientConfig} profileClientConfig The profile client configuration.* @export*/downloadProfileAsImageFile(profileClientConfig) {const profileSVG &#x3D; d3.select(&#x27;#gmf-lidarprofile-container svg.lidar-svg&#x27;);const w &#x3D; parseInt(profileSVG.attr(&#x27;width&#x27;), 10);const h &#x3D; parseInt(profileSVG.attr(&#x27;height&#x27;), 10);const margin &#x3D; profileClientConfig.margin;// Create a new canvas element to avoid manipulate the one with profile.const canvas &#x3D; document.createElement(&#x27;canvas&#x27;);canvas.style.display &#x3D; &#x27;none&#x27;;canvas.width &#x3D; w;canvas.height &#x3D; h;const ctx &#x3D; canvas.getContext(&#x27;2d&#x27;);ctx.fillStyle &#x3D; &#x27;white&#x27;;ctx.fillRect(0, 0, w, h);// Draw the profile canvas (the points) into the new canvas.const profileCanvas &#x3D; d3.select(&#x27;#gmf-lidarprofile-container .lidar-canvas&#x27;).node();ctx.drawImage(profileCanvas, margin.left, margin.top,w - (margin.left + margin.right), h - (margin.top + margin.bottom));// Add transforms the profile into an image.const exportImage &#x3D; new Image();const serializer &#x3D; new XMLSerializer();const svgStr &#x3D; serializer.serializeToString(profileSVG.node());// Draw the image of the profile into the context of the new canvas.const img_id &#x3D; &#x27;lidare_profile_for_export_uid&#x27;;exportImage.id &#x3D; img_id;exportImage.src &#x3D; &#x60;data:image/svg+xml;base64, ${btoa(svgStr)}&#x60;;exportImage.style.setProperty(&#x27;display&#x27;, &#x27;none&#x27;);const body &#x3D; document.getElementsByTagName(&#x27;body&#x27;)[0];// The image must be loaded to be drawn.exportImage.onload &#x3D; () &#x3D;&gt; {ctx.drawImage(exportImage, 0, 0, w, h);body.removeChild(document.getElementById(img_id));// Let the user download the image.canvas.toBlob((blob) &#x3D;&gt; {saveAs(blob, &#x27;LIDAR_profile.png&#x27;);});};body.appendChild(exportImage);}/*** Transforms a lidarprofile into multiple single points sorted by distance.* @param {gmfx.LidarprofilePoints} profilePoints in the profile* @return {Array.&lt;gmfx.LidarPoint&gt;} An array of Lidar Points.*/getFlatPointsByDistance(profilePoints) {const points &#x3D; [];for (let i &#x3D; 0; i &lt; profilePoints.distance.length; i++) {const p &#x3D; {distance: profilePoints.distance[i],altitude: profilePoints.altitude[i],color_packed: profilePoints.color_packed[i],intensity: profilePoints.intensity[i],classification: profilePoints.classification[i],coords: profilePoints.coords[i]};points.push(p);}points.sort((a, b) &#x3D;&gt; (a.distance - b.distance));return points;}/*** Get the data for a CSV export of the profile.* @param {gmfx.LidarPoint} points a lidar profile points object.* @return {Array.&lt;Object&gt;} Objects for a csv export (column: value).* @export*/getCSVData(points) {return points.map((point) &#x3D;&gt; {const row &#x3D; {};for (const key in point) {const value &#x3D; point[key];if (key &#x3D;&#x3D; &#x27;altitude&#x27;) {row[key] &#x3D; value.toFixed(4);} else if (key &#x3D;&#x3D; &#x27;color_packed&#x27; || key &#x3D;&#x3D; &#x27;coords&#x27;) {row[key] &#x3D; value.join(&#x27; &#x27;);} else {row[key] &#x3D; value;}}return row;});}/*** Find the maximum value in am array of numbers* @param {(Array.&lt;number&gt;|undefined)} array of number* @return {number} the maximum of input array*/arrayMax(array) {return array.reduce((a, b) &#x3D;&gt; Math.max(a, b));}/*** Find the minimum value in am array of numbers* @param {Array.&lt;number&gt;|undefined} array of number* @return {number} the minimum of input array*/arrayMin(array) {let minVal &#x3D; Infinity;for (let i &#x3D; 0; i &lt; array.length; i++) {if (array[i] &lt; minVal) {minVal &#x3D; array[i];}}return minVal;}/*** Transform Openlayers linestring into a cPotree compatible definition* @param {ol.geom.LineString} line the profile 2D line* @return {string} linestring in a cPotree/pytree compatible string definition*/getPytreeLinestring(line) {const coords &#x3D; line.getCoordinates();let pytreeLineString &#x3D; &#x27;&#x27;;for (let i &#x3D; 0; i &lt; coords.length; i++) {const px &#x3D; coords[i][0];const py &#x3D; coords[i][1];pytreeLineString +&#x3D; &#x60;{${Math.round(100 * px) / 100}, ${Math.round(100 * py) / 100}},&#x60;;}return pytreeLineString.substr(0, pytreeLineString.length - 1);}/*** Find the profile&#x27;s closest point in profile data to the chart mouse position* @param {gmfx.LidarprofilePoints} points Object containing points properties as arrays* @param {number} xs mouse x coordinate on canvas element* @param {number} ys mouse y coordinate on canvas element* @param {number} tolerance snap sensibility* @param {Function} sx d3.scalelinear x scale* @param {Function} sy d3.scalelinear y scale* @param {lidarprofileServer.ConfigClassifications} classification_colors classification colors* @return {gmfx.LidarPoint} closestPoint the closest point to the clicked coordinates*/getClosestPoint(points, xs, ys, tolerance, sx, sy, classification_colors) {const d &#x3D; points;const tol &#x3D; tolerance;const distances &#x3D; [];const hP &#x3D; [];for (let i &#x3D; 0; i &lt; d.distance.length; i++) {if (sx(d.distance[i]) &lt; xs + tol &amp;&amp; sx(d.distance[i]) &gt; xs - tol &amp;&amp; sy(d.altitude[i]) &lt; ys + tol &amp;&amp; sy(d.altitude[i]) &gt; ys - tol) {const pDistance &#x3D; Math.sqrt(Math.pow((sx(d.distance[i]) - xs), 2) + Math.pow((sy(d.altitude[i]) - ys), 2));const cClassif &#x3D; classification_colors[d.classification[i]];if (cClassif &amp;&amp; cClassif.visible &#x3D;&#x3D; 1) {hP.push({distance: d.distance[i],altitude: d.altitude[i],classification: d.classification[i],color_packed: d.color_packed[i],intensity: d.intensity[i],coords: d.coords[i]});distances.push(pDistance);}}}let closestPoint;if (hP.length &gt; 0) {const minDist &#x3D; Math.min(distances);const indexMin &#x3D; distances.indexOf(minDist);if (indexMin !&#x3D; -1) {closestPoint &#x3D; hP[indexMin];} else {closestPoint &#x3D; hP[0];}}return closestPoint;}}</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/camptocamp/ngeo/blob/60bd072/contribs/gmf/src/lidarprofile/Utils.js#L18">contribs/gmf/src/lidarprofile/Utils.js:18</a></li>
+						</ul>
+					</aside>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group tsd-is-not-exported">
+				<h2>Object literals</h2>
+				<section class="tsd-panel tsd-member tsd-kind-object-literal tsd-parent-kind-external-module tsd-is-not-exported">
+					<a name="d3" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> d3</h3>
+					<div class="tsd-signature tsd-kind-icon">d3<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/camptocamp/ngeo/blob/60bd072/contribs/gmf/src/lidarprofile/Utils.js#L13">contribs/gmf/src/lidarprofile/Utils.js:13</a></li>
+						</ul>
+					</aside>
+					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal tsd-is-not-exported">
+						<a name="d3.select" class="tsd-anchor"></a>
+						<h3>select</h3>
+						<div class="tsd-signature tsd-kind-icon">select<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">select</span></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/camptocamp/ngeo/blob/60bd072/contribs/gmf/src/lidarprofile/Utils.js#L14">contribs/gmf/src/lidarprofile/Utils.js:14</a></li>
+							</ul>
+						</aside>
+					</section>
+				</section>
+			</section>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="globals  ">
+						<a href="../globals.html"><em>Globals</em></a>
+					</li>
+					<li class="current tsd-kind-external-module">
+						<a href="_contribs_gmf_src_lidarprofile_utils_.html">"contribs/gmf/src/lidarprofile/<wbr>Utils"</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+					<li class=" tsd-kind-variable tsd-parent-kind-external-module">
+						<a href="_contribs_gmf_src_lidarprofile_utils_.html#exports" class="tsd-kind-icon">exports</a>
+					</li>
+					<li class=" tsd-kind-object-literal tsd-parent-kind-external-module tsd-is-not-exported">
+						<a href="_contribs_gmf_src_lidarprofile_utils_.html#d3" class="tsd-kind-icon">d3</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-module"><span class="tsd-kind-icon">Module</span></li>
+				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
+				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+				<li class="tsd-kind-enum-member"><span class="tsd-kind-icon">Enumeration member</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-enum"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-enum"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-interface"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-interface"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class"><span class="tsd-kind-icon">Accessor</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-class"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
+				<li class="tsd-kind-call-signature tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="../assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="../assets/js/search.js"><' + '/script>');</script>
+</body>
+</html>

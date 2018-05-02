@@ -1,0 +1,183 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>&quot;src/filter/RuleHelper&quot; | ngeo</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.js" data-base="..">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="../index.html" class="title">ngeo</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+							<input type="checkbox" id="tsd-filter-only-exported" />
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="../globals.html">Globals</a>
+				</li>
+				<li>
+					<a href="_src_filter_rulehelper_.html">&quot;src/filter/RuleHelper&quot;</a>
+				</li>
+			</ul>
+			<h1>External module &quot;src/filter/RuleHelper&quot;</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<section class="tsd-panel-group tsd-index-group">
+				<h2>Index</h2>
+				<section class="tsd-panel tsd-index-panel">
+					<div class="tsd-index-content">
+						<section class="tsd-index-section ">
+							<h3>Variables</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-variable tsd-parent-kind-external-module"><a href="_src_filter_rulehelper_.html#exports" class="tsd-kind-icon">exports</a></li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Variables</h2>
+				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-external-module">
+					<a name="exports" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> exports</h3>
+					<div class="tsd-signature tsd-kind-icon">exports<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">exports</span><span class="tsd-signature-symbol"> =&nbsp;class {/*** A service that provides utility methods to create &#x60;ngeo.rule.Rule&#x60;* objects.** @param {!angularGettext.Catalog} gettextCatalog Gettext service.* @param {!ngeo.misc.FeatureHelper} ngeoFeatureHelper Ngeo feature helper service.* @param {!ngeo.misc.WMSTime} ngeoWMSTime wms time service.* @struct* @ngdoc service* @ngname ngeoRuleHelper* @ngInject*/constructor(gettextCatalog, ngeoFeatureHelper, ngeoWMSTime) {/*** @type {!angularGettext.Catalog}* @private*/this.gettextCatalog_ &#x3D; gettextCatalog;/*** @type {!ngeo.misc.FeatureHelper}* @private*/this.ngeoFeatureHelper_ &#x3D; ngeoFeatureHelper;/*** @type {!ngeo.misc.WMSTime}* @private*/this.ngeoWMSTime_ &#x3D; ngeoWMSTime;}/*** @param {!Array.&lt;!ngeox.Attribute&gt;} attributes Attributes.* @param {boolean&#x3D;} opt_isCustom Whether the created rules should be marked*     as custom or not. Defaults to &#x60;false&#x60;.* @return {Array.&lt;!ngeo.rule.Rule&gt;} Rules.* @export*/createRulesFromAttributes(attributes, opt_isCustom) {const rules &#x3D; [];for (const attribute of attributes) {rules.push(this.createRuleFromAttribute(attribute, opt_isCustom));}return rules;}/*** @param {!ngeox.Attribute} attribute Attribute.* @param {boolean&#x3D;} opt_isCustom Whether the created rule should be marked*     as custom or not. Defaults to &#x60;false&#x60;.* @return {!ngeo.rule.Rule} Rule.* @export*/createRuleFromAttribute(attribute, opt_isCustom) {let rule;const isCustom &#x3D; opt_isCustom &#x3D;&#x3D;&#x3D; true;/*** @type {string}*/const name &#x3D; this.gettextCatalog_.getString(attribute.name);// Todo: support geometryswitch (attribute.type) {case ngeoFormatAttributeType.DATE:case ngeoFormatAttributeType.DATETIME:if (isCustom) {rule &#x3D; new ngeoRuleDate({name: name,operator: ngeoRuleRule.TemporalOperatorType.EQUALS,operators: [ngeoRuleRule.TemporalOperatorType.EQUALS,ngeoRuleRule.TemporalOperatorType.BEGINS,ngeoRuleRule.TemporalOperatorType.ENDS],propertyName: attribute.name,type: attribute.type});} else {rule &#x3D; new ngeoRuleDate({name: name,operator: ngeoRuleRule.TemporalOperatorType.DURING,propertyName: attribute.name,type: attribute.type});}break;case ngeoFormatAttributeType.GEOMETRY:rule &#x3D; new ngeoRuleGeometry({name: name,operator: ngeoRuleRule.SpatialOperatorType.WITHIN,operators: [ngeoRuleRule.SpatialOperatorType.CONTAINS,ngeoRuleRule.SpatialOperatorType.INTERSECTS,ngeoRuleRule.SpatialOperatorType.WITHIN],propertyName: attribute.name,type: attribute.type});break;case ngeoFormatAttributeType.NUMBER:if (isCustom) {rule &#x3D; new ngeoRuleRule({name: name,operator: ngeoRuleRule.OperatorType.EQUAL_TO,operators: [ngeoRuleRule.OperatorType.EQUAL_TO,ngeoRuleRule.OperatorType.GREATER_THAN,ngeoRuleRule.OperatorType.GREATER_THAN_OR_EQUAL_TO,ngeoRuleRule.OperatorType.LESSER_THAN,ngeoRuleRule.OperatorType.LESSER_THAN_OR_EQUAL_TO,ngeoRuleRule.OperatorType.NOT_EQUAL_TO],propertyName: attribute.name,type: ngeoFormatAttributeType.NUMBER});} else {rule &#x3D; new ngeoRuleRule({name: name,operator: ngeoRuleRule.OperatorType.BETWEEN,propertyName: attribute.name,type: ngeoFormatAttributeType.NUMBER});}break;case ngeoFormatAttributeType.SELECT:rule &#x3D; new ngeoRuleSelect({choices: googAsserts.assert(attribute.choices),name: name,propertyName: attribute.name});break;default:if (isCustom) {rule &#x3D; new ngeoRuleText({name: name,operator: ngeoRuleRule.OperatorType.LIKE,operators: [ngeoRuleRule.OperatorType.LIKE,ngeoRuleRule.OperatorType.EQUAL_TO,ngeoRuleRule.OperatorType.NOT_EQUAL_TO],propertyName: attribute.name});} else {rule &#x3D; new ngeoRuleText({name: name,operator: ngeoRuleRule.OperatorType.LIKE,propertyName: attribute.name});}break;}return rule;}/*** @param {!Array.&lt;!ngeox.rule.RuleOptions|!ngeox.rule.SelectOptions&gt;} optionsList List of options* @return {Array.&lt;!ngeo.rule.Rule&gt;} Rules.* @export*/createRules(optionsList) {const rules &#x3D; [];for (const options of optionsList) {rules.push(this.createRule(options));}return rules;}/*** @param {!ngeox.rule.RuleOptions|!ngeox.rule.SelectOptions} options Options* @return {!ngeo.rule.Rule} Rule.* @export*/createRule(options) {let rule;switch (options.type) {case ngeoFormatAttributeType.DATE:case ngeoFormatAttributeType.DATETIME:rule &#x3D; new ngeoRuleDate(options);break;case ngeoFormatAttributeType.GEOMETRY:rule &#x3D; new ngeoRuleGeometry(options);break;case ngeoFormatAttributeType.SELECT:const selectOptions &#x3D; /** @type {!ngeox.rule.SelectOptions} */ (options);googAsserts.assert(selectOptions.choices);rule &#x3D; new ngeoRuleSelect(selectOptions);break;default:rule &#x3D; new ngeoRuleText(options);break;}return rule;}/*** Create a new &#x60;ngeo.rule.Rule&#x60; object using an other given rule.** @param {!ngeo.rule.Rule} rule Original rule to clone.* @return {!ngeo.rule.Rule} A clone rule.* @export*/cloneRule(rule) {let clone;let expression &#x3D; rule.getExpression();if (expression &#x3D;&#x3D;&#x3D; null) {expression &#x3D; undefined;}const isCustom &#x3D; rule.isCustom;const lowerBoundary &#x3D; rule.lowerBoundary !&#x3D;&#x3D; null ? rule.lowerBoundary :undefined;const name &#x3D; rule.name;const operator &#x3D; rule.operator !&#x3D;&#x3D; null ? rule.operator : undefined;const operators &#x3D; rule.operators ? rule.operators.slice(0) : undefined;const propertyName &#x3D; rule.propertyName;const type &#x3D; rule.type !&#x3D;&#x3D; null ? rule.type : undefined;const upperBoundary &#x3D; rule.upperBoundary !&#x3D;&#x3D; null ? rule.upperBoundary :undefined;const options &#x3D; {expression,isCustom,lowerBoundary,name,operator,operators,propertyName,type,upperBoundary};if (rule instanceof ngeoRuleDate) {clone &#x3D; new ngeoRuleDate(options);} else if (rule instanceof ngeoRuleGeometry) {clone &#x3D; new ngeoRuleGeometry(options);clone.feature.setProperties(this.ngeoFeatureHelper_.getNonSpatialProperties(rule.feature));} else if (rule instanceof ngeoRuleSelect) {options.choices &#x3D; rule.choices.slice(0);clone &#x3D; new ngeoRuleSelect(options);} else if (rule instanceof ngeoRuleText) {clone &#x3D; new ngeoRuleText(options);} else {clone &#x3D; new ngeoRuleRule(options);}return clone;}/*** Extend the dynamic properties from a source rule to destination rule.* The source rule remains unchanged, while the destination rule changes.** @param {!ngeo.rule.Rule} sourceRule Source rule to collect the dynamic*     properties from.* @param {!ngeo.rule.Rule} destRule Destination rule where the dynamic*     properties are set.* @export*/extendRule(sourceRule, destRule) {if (destRule.getExpression() !&#x3D;&#x3D; sourceRule.getExpression()) {destRule.setExpression(sourceRule.getExpression());}if (destRule.lowerBoundary !&#x3D;&#x3D; sourceRule.lowerBoundary) {destRule.lowerBoundary &#x3D; sourceRule.lowerBoundary;}if (destRule.operator !&#x3D;&#x3D; sourceRule.operator) {destRule.operator &#x3D; sourceRule.operator;}if (destRule.upperBoundary !&#x3D;&#x3D; sourceRule.upperBoundary) {destRule.upperBoundary &#x3D; sourceRule.upperBoundary;}if (sourceRule instanceof ngeoRuleGeometry &amp;&amp;destRule instanceof ngeoRuleGeometry) {this.ngeoFeatureHelper_.clearNonSpatialProperties(destRule.feature);destRule.feature.setProperties(this.ngeoFeatureHelper_.getNonSpatialProperties(sourceRule.feature));}}/*** @param {!Array.&lt;!ngeo.rule.Rule&gt;} rules Rules* @return {!Array.&lt;!ngeox.rule.AnyOptions&gt;} List of serialized rule options.* @export*/serializeRules(rules) {return rules.map((rule) &#x3D;&gt; {const serializedRule &#x3D; this.serializeRule(rule);return serializedRule;});}/*** Selialize a rule into options to re-create it later.* @param {!ngeo.rule.Rule} rule Rule to serialize.* @return {!ngeox.rule.AnyOptions} Serialized rule options.* @export*/serializeRule(rule) {const obj &#x3D; {name: rule.name,propertyName: rule.propertyName,type: rule.type};if (rule.expression !&#x3D;&#x3D; null) {obj.expression &#x3D; rule.expression;}if (rule.lowerBoundary !&#x3D;&#x3D; null) {obj.lowerBoundary &#x3D; rule.lowerBoundary;}if (rule.operator !&#x3D;&#x3D; null) {obj.operator &#x3D; rule.operator;}if (rule.operators !&#x3D;&#x3D; null) {obj.operators &#x3D; rule.operators.slice(0);}if (rule.upperBoundary !&#x3D;&#x3D; null) {obj.upperBoundary &#x3D; rule.upperBoundary;}if (rule instanceof ngeoRuleGeometry) {obj.featureProperties &#x3D; this.ngeoFeatureHelper_.getNonSpatialProperties(rule.feature);}if (rule instanceof ngeoRuleSelect) {obj.choices &#x3D; rule.choices;}return obj;}/*** Create a &#x60;ol.format.filter.Filter&#x60; object for a given data source.* See the &#x60;ngeox.CreateFilterOptions&#x60; to learn more.** @param {ngeox.CreateFilterOptions} options Options.* @return {?ol.format.filter.Filter} Filter.* @export*/createFilter(options) {const dataSource &#x3D; /** @type {ngeo.datasource.OGC} */ (options.dataSource);let mainFilter &#x3D; null;if (options.filter) {mainFilter &#x3D; options.filter;} else {const rules &#x3D; options.filterRules || dataSource.filterRules;const conditions &#x3D; [];if (rules &amp;&amp; rules.length) {for (const rule of rules) {const filter &#x3D; this.createFilterFromRule_(rule,dataSource,options.srsName);if (filter) {conditions.push(filter);}}}const condition &#x3D; dataSource.filterCondition;if (conditions.length &#x3D;&#x3D;&#x3D; 1) {mainFilter &#x3D; conditions[0];} else if (conditions.length &gt;&#x3D; 2) {if (condition &#x3D;&#x3D;&#x3D; ngeoFilterCondition.AND) {mainFilter &#x3D; olFormatFilter.and.apply(null, conditions);} else if (condition &#x3D;&#x3D;&#x3D; ngeoFilterCondition.OR ||condition &#x3D;&#x3D;&#x3D; ngeoFilterCondition.NOT) {mainFilter &#x3D; olFormatFilter.or.apply(null, conditions);}}if (mainFilter &amp;&amp; condition &#x3D;&#x3D;&#x3D; ngeoFilterCondition.NOT) {mainFilter &#x3D; olFormatFilter.not(mainFilter);}}if (options.incTime) {const timeFilter &#x3D; this.createTimeFilterFromDataSource_(dataSource);if (timeFilter) {if (mainFilter) {mainFilter &#x3D; olFormatFilter.and.apply(null,[mainFilter,timeFilter]);} else {mainFilter &#x3D; timeFilter;}}}if (options.incDimensions) {const dimensionsFilter &#x3D; this.createDimensionsFilterFromDataSource_(dataSource);if (dimensionsFilter) {if (mainFilter) {mainFilter &#x3D; olFormatFilter.and.apply(null, [mainFilter, dimensionsFilter]);} else {mainFilter &#x3D; dimensionsFilter;}}}return mainFilter;}/*** @param {ngeox.CreateFilterOptions} options Options.* @return {?string} Filter string.* @export*/createFilterString(options) {let filterString &#x3D; null;const filter &#x3D; this.createFilter(options);if (filter) {const filterNode &#x3D; writeFilter(filter);const xmlSerializer &#x3D; new XMLSerializer();filterString &#x3D; xmlSerializer.serializeToString(filterNode);}return filterString;}/*** @param {ngeo.rule.Rule} rule Rule.* @param {ngeo.datasource.OGC} dataSource Data source.* @param {string&#x3D;} opt_srsName SRS name. No srsName attribute will be*     set on geometries when this is not provided.* @return {?ol.format.filter.Filter} filter Filter;* @private*/createFilterFromRule_(rule, dataSource, opt_srsName) {let filter &#x3D; null;const value &#x3D; rule.value;if (!value) {return null;}const expression &#x3D; value.expression;const lowerBoundary &#x3D; value.lowerBoundary;const operator &#x3D; value.operator;const propertyName &#x3D; value.propertyName;const upperBoundary &#x3D; value.upperBoundary;const rot &#x3D; ngeoRuleRule.OperatorType;const rsot &#x3D; ngeoRuleRule.SpatialOperatorType;const rtot &#x3D; ngeoRuleRule.TemporalOperatorType;const spatialTypes &#x3D; [rsot.CONTAINS,rsot.INTERSECTS,rsot.WITHIN];const numericTypes &#x3D; [rot.GREATER_THAN,rot.GREATER_THAN_OR_EQUAL_TO,rot.LESSER_THAN,rot.LESSER_THAN_OR_EQUAL_TO];if (rule instanceof ngeoRuleDate) {let beginValue;let endValue;if (operator &#x3D;&#x3D;&#x3D; rtot.DURING) {beginValue &#x3D; moment(lowerBoundary).format(&#x27;YYYY-MM-DD&#x27;);endValue &#x3D; moment(upperBoundary).format(&#x27;YYYY-MM-DD&#x27;);} else if (operator &#x3D;&#x3D;&#x3D; rtot.EQUALS) {beginValue &#x3D; moment(expression).format(&#x27;YYYY-MM-DD HH:mm:ss&#x27;);endValue &#x3D; moment(expression).add(1, &#x27;days&#x27;).subtract(1, &#x27;seconds&#x27;).format(&#x27;YYYY-MM-DD HH:mm:ss&#x27;);} else if (operator &#x3D;&#x3D;&#x3D; rtot.BEGINS) {beginValue &#x3D; moment(expression).format(&#x27;YYYY-MM-DD&#x27;);// NOTE: end value is CURRENT + 30 yearsendValue &#x3D; moment(expression).add(30, &#x27;years&#x27;).format(&#x27;YYYY-MM-DD&#x27;);} else if (operator &#x3D;&#x3D;&#x3D; rtot.ENDS) {// NOTE: begin value is hardcoded to 1970-01-01beginValue &#x3D; &#x27;1970-01-01&#x27;;endValue &#x3D; moment(expression).format(&#x27;YYYY-MM-DD&#x27;);}if (beginValue &amp;&amp; endValue) {filter &#x3D; olFormatFilter.during(propertyName,beginValue,endValue);}} else if (rule instanceof ngeoRuleSelect) {const selectedChoices &#x3D; rule.selectedChoices;if (selectedChoices.length &#x3D;&#x3D;&#x3D; 1) {filter &#x3D; olFormatFilter.equalTo(propertyName,selectedChoices[0]);} else if (selectedChoices.length &gt;&#x3D; 2) {const conditions &#x3D; [];for (const selectedChoice of selectedChoices) {conditions.push(olFormatFilter.equalTo(propertyName,selectedChoice));}filter &#x3D; olFormatFilter.or.apply(null, conditions);}} else if (spatialTypes.includes(operator)) {const geometryName &#x3D; dataSource.geometryName;googAsserts.assertInstanceof(rule, ngeoRuleGeometry);const geometry &#x3D; googAsserts.assert(rule.geometry);if (operator &#x3D;&#x3D;&#x3D; rsot.CONTAINS) {filter &#x3D; olFormatFilter.contains(geometryName,geometry,opt_srsName);} else if (operator &#x3D;&#x3D;&#x3D; rsot.INTERSECTS) {filter &#x3D; olFormatFilter.intersects(geometryName,geometry,opt_srsName);} else if (operator &#x3D;&#x3D;&#x3D; rsot.WITHIN) {filter &#x3D; olFormatFilter.within(geometryName,geometry,opt_srsName);}} else if (numericTypes.includes(operator)) {const numericExpression &#x3D; googAsserts.assertNumber(expression);if (operator &#x3D;&#x3D;&#x3D; rot.GREATER_THAN) {filter &#x3D; olFormatFilter.greaterThan(propertyName,numericExpression);} else if (operator &#x3D;&#x3D;&#x3D; rot.GREATER_THAN_OR_EQUAL_TO) {filter &#x3D; olFormatFilter.greaterThanOrEqualTo(propertyName,numericExpression);} else if (operator &#x3D;&#x3D;&#x3D; rot.LESSER_THAN) {filter &#x3D; olFormatFilter.lessThan(propertyName,numericExpression);} else if (operator &#x3D;&#x3D;&#x3D; rot.LESSER_THAN_OR_EQUAL_TO) {filter &#x3D; olFormatFilter.lessThanOrEqualTo(propertyName,numericExpression);}} else if (operator &#x3D;&#x3D;&#x3D; rot.BETWEEN) {filter &#x3D; olFormatFilter.between(propertyName,lowerBoundary,upperBoundary);} else if (operator &#x3D;&#x3D;&#x3D; rot.EQUAL_TO) {filter &#x3D; olFormatFilter.equalTo(propertyName,expression);} else if (operator &#x3D;&#x3D;&#x3D; rot.LIKE) {const stringExpression &#x3D; String(expression).replace(/!/g, &#x27;!!&#x27;).replace(/\./g, &#x27;!.&#x27;).replace(/\*/g, &#x27;!*&#x27;);filter &#x3D; olFormatFilter.like(propertyName,&#x60;*${stringExpression}*&#x60;,&#x27;*&#x27;, /* wildCard */&#x27;.&#x27;, /* singleChar */&#x27;!&#x27;, /* escapeChar */false /* matchCase */);} else if (operator &#x3D;&#x3D;&#x3D; rot.NOT_EQUAL_TO) {filter &#x3D; olFormatFilter.notEqualTo(propertyName,expression);}return filter;}/*** Create and return an OpenLayers filter object using the available* dimensions filters configuration within the data source.* @param {ngeo.DataSource} dataSource Data source from which to create the*     filter.* @return {?ol.format.filter.Filter} Filter* @private*/createDimensionsFilterFromDataSource_(dataSource) {const config &#x3D; dataSource.dimensionsFiltersConfig;const dimensions &#x3D; dataSource.dimensions;const conditions &#x3D; [];for (const key in config) {let value &#x3D; config[key].value;if (value &#x3D;&#x3D;&#x3D; null) {if (dimensions[key] !&#x3D;&#x3D; undefined &amp;&amp; dimensions[key] !&#x3D;&#x3D; null) {value &#x3D; dimensions[key];}}if (value !&#x3D;&#x3D; null) {conditions.push(olFormatFilter.equalTo(config[key].field, value, true));}}if (conditions.length &#x3D;&#x3D;&#x3D; 1) {return conditions[0];} else if (conditions.length &gt;&#x3D; 2) {return olFormatFilter.and.apply(null, conditions);}return null;}/*** Create and return an OpenLayers filter object using the available* time properties within the data source.* @param {ngeo.datasource.OGC} dataSource Data source from which to*     create the filter.* @return {?ol.format.filter.Filter} Filter* @private*/createTimeFilterFromDataSource_(dataSource) {let filter &#x3D; null;const range &#x3D; dataSource.timeRangeValue;const timeProperty &#x3D; dataSource.timeProperty;const name &#x3D; dataSource.timeAttributeName;if (range &amp;&amp; timeProperty &amp;&amp; name) {if (range.end !&#x3D;&#x3D; undefined) {// Case 1: the range has both &#x27;start&#x27; and &#x27;end&#x27; values.  Use them to//         create a During filter.const values &#x3D; this.ngeoWMSTime_.formatWMSTimeParam(timeProperty,range).split(&#x27;/&#x27;);filter &#x3D; olFormatFilter.during(name, values[0], values[1]);} else {// Case 2: we only have a &#x27;start&#x27; value. We need to calculate the &#x27;end&#x27;//         using the resolution of the time property.const resolution &#x3D; timeProperty.resolution || &#x27;seconds&#x27;;const value &#x3D; this.ngeoWMSTime_.formatWMSTimeParam(timeProperty,range);let momentEnd;switch (resolution) {case &#x27;year&#x27;:momentEnd &#x3D; moment(value).add(1, &#x27;years&#x27;).subtract(1, &#x27;seconds&#x27;);break;case &#x27;month&#x27;:momentEnd &#x3D; moment(value).add(1, &#x27;months&#x27;).subtract(1, &#x27;seconds&#x27;);break;case &#x27;day&#x27;:momentEnd &#x3D; moment(value).add(1, &#x27;days&#x27;).subtract(1, &#x27;seconds&#x27;);break;default://case &quot;second&quot;:// This would require a TContains filter, which neither OpenLayers// and MapServer support. Skip...}if (momentEnd) {const startValue &#x3D; moment(value).format(&#x27;YYYY-MM-DD HH:mm:ss&#x27;);const endValue &#x3D; momentEnd.format(&#x27;YYYY-MM-DD HH:mm:ss&#x27;);filter &#x3D; olFormatFilter.during(name, startValue, endValue);}}}return filter;}}</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/camptocamp/ngeo/blob/60bd072/src/filter/RuleHelper.js#L20">src/filter/RuleHelper.js:20</a></li>
+						</ul>
+					</aside>
+				</section>
+			</section>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="globals  ">
+						<a href="../globals.html"><em>Globals</em></a>
+					</li>
+					<li class="current tsd-kind-external-module">
+						<a href="_src_filter_rulehelper_.html">"src/filter/<wbr>Rule<wbr>Helper"</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+					<li class=" tsd-kind-variable tsd-parent-kind-external-module">
+						<a href="_src_filter_rulehelper_.html#exports" class="tsd-kind-icon">exports</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-module"><span class="tsd-kind-icon">Module</span></li>
+				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
+				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+				<li class="tsd-kind-enum-member"><span class="tsd-kind-icon">Enumeration member</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-enum"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-enum"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-interface"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-interface"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class"><span class="tsd-kind-icon">Accessor</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-class"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
+				<li class="tsd-kind-call-signature tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="../assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="../assets/js/search.js"><' + '/script>');</script>
+</body>
+</html>

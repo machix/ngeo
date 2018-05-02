@@ -1,0 +1,183 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>&quot;src/query/Querent&quot; | ngeo</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.js" data-base="..">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="../index.html" class="title">ngeo</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+							<input type="checkbox" id="tsd-filter-only-exported" />
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="../globals.html">Globals</a>
+				</li>
+				<li>
+					<a href="_src_query_querent_.html">&quot;src/query/Querent&quot;</a>
+				</li>
+			</ul>
+			<h1>External module &quot;src/query/Querent&quot;</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<section class="tsd-panel-group tsd-index-group">
+				<h2>Index</h2>
+				<section class="tsd-panel tsd-index-panel">
+					<div class="tsd-index-content">
+						<section class="tsd-index-section ">
+							<h3>Variables</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-variable tsd-parent-kind-external-module"><a href="_src_query_querent_.html#exports" class="tsd-kind-icon">exports</a></li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Variables</h2>
+				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-external-module">
+					<a name="exports" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> exports</h3>
+					<div class="tsd-signature tsd-kind-icon">exports<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">exports</span><span class="tsd-signature-symbol"> =&nbsp;class {/*** The ngeo Querent is a service that issues all sorts of queries using* ngeo data sources. It does not store the result. Instead, it returns it* using promises. Any component that inject this service can use it to* make it issue its own queries and do whatever it wants with the result.** It supports sending OGC requests and parse the response, such as:* - WFS DescribeFeatureType* - WFS GetFeature* - WMS GetCapabilites* - WMS GetFeatureInfo* - WMTS GetCapabilities** @struct* @param {angular.IHttpService} $http Angular $http service.* @param {angular.IQService} $q The Angular $q service.* @param {!ngeo.filter.RuleHelper} ngeoRuleHelper Ngeo rule helper service.* @param {!ngeo.misc.WMSTime} ngeoWMSTime wms time service.* @ngdoc service* @ngname ngeoQuerent* @ngInject*/constructor($http, $q, ngeoRuleHelper, ngeoWMSTime) {// &#x3D;&#x3D;&#x3D; Injected properties &#x3D;&#x3D;&#x3D;/*** @type {angular.IHttpService}* @private*/this.http_ &#x3D; $http;/*** @type {angular.IQService}* @private*/this.q_ &#x3D; $q;/*** @type {!ngeo.filter.RuleHelper}* @private*/this.ngeoRuleHelper_ &#x3D; ngeoRuleHelper;/*** @type {!ngeo.misc.WMSTime}* @private*/this.ngeoWMSTime_ &#x3D; ngeoWMSTime;// &#x3D;&#x3D;&#x3D; Other properties &#x3D;&#x3D;&#x3D;/*** Promises that can be resolved to cancel started requests.* @type {!Array.&lt;angular.IDeferred&gt;}* @private*/this.requestCancelers_ &#x3D; [];/*** Cache of promises for WMS GetCapabilities requests. They key is the* online resource base url that is used to do the query.* @type {!Object.&lt;!angular.IPromise&gt;}* @private*/this.wmsGetCapabilitiesPromises_ &#x3D; {};/*** Cache of promises for WMST GetCapabilities requests. They key is the* url that is used to do the query.* @type {!Object.&lt;!angular.IPromise&gt;}* @private*/this.wmtsGetCapabilitiesPromises_ &#x3D; {};}// &#x3D;&#x3D;&#x3D; PUBLIC methods &#x3D;&#x3D;&#x3D;/*** Issue WMS GetFeatureInfo and/or WFS GetFeature requests using the given* data sources, map and optional filters.** @param {ngeox.IssueGetFeaturesOptions} options Options.* @return {angular.IPromise} Promise.* @export*/issue(options) {const promises &#x3D; [];const map &#x3D; options.map;// (1) Cancel requests that are still runningthis.cancelStillRunningRequests_();// (2) Get queryable data sourceslet queryableDataSources;if (options.queryableDataSources) {queryableDataSources &#x3D; options.queryableDataSources;} else {const dataSources &#x3D; options.dataSources;googAsserts.assert(dataSources, &#x27;DataSources should be set&#x27;);queryableDataSources &#x3D; this.getQueryableDataSources(dataSources, map);}// (3) Combine data sources that support WFS and issue WFS queries.//     The &#x27;bbox&#x27; (&#x27;extent&#x27; option) is not required for WFS requests to//     be issued.const combinedWFSDataSources &#x3D; this.getCombinableWFSDataSources_(queryableDataSources.wfs);promises.push(this.issueCombinedWFS_(combinedWFSDataSources, options));// (4) Combine data sources that support WMS and issue WMS queries.//     Only occurs if the &#x60;coordinate&#x60; option is set, because it&#x27;s required//     by WMS GetFeatureInfo requests.const coordinate &#x3D; options.coordinate;if (coordinate) {const combinedWMSDataSources &#x3D; this.getCombinableWMSDataSources_(queryableDataSources.wms);promises.push(this.issueCombinedWMS_(combinedWMSDataSources, options));}return this.q_.all(promises).then(this.handleCombinedQueryResult_.bind(this));}/*** Browse a given list of data sources. Return 2 lists of data sources that* are queryable, the first one being those that support WFS and the other* WMS only. This means that WFS is always favored first, then WMS.** The map view resolution determines if the inner ogc layers are in range.** @param {!Array.&lt;!ngeo.datasource.DataSource&gt;} dataSources Data sources* @param {ol.Map} map Map.* @return {!ngeox.QueryableDataSources} Queryable data sources.* @export*/getQueryableDataSources(dataSources, map) {const queryableDataSources &#x3D; {wfs: [],wms: []};const resolution &#x3D; googAsserts.assertNumber(map.getView().getResolution());for (const dataSource of dataSources) {// (1) Skip data source that can&#x27;t be queriedif (!this.isDataSourceQueryable_(dataSource, resolution)) {continue;}if (dataSource instanceof ngeoDatasourceOGC) {// (2) Split data sourcesif (dataSource.supportsWFS) {queryableDataSources.wfs.push(dataSource);} else {queryableDataSources.wms.push(dataSource);}}}return queryableDataSources;}/*** @param {ngeo.datasource.OGC} dataSource Data source.* @return {angular.IPromise} Promise.* @export*/wfsDescribeFeatureType(dataSource) {googAsserts.assert(dataSource.supportsAttributes,&#x60;The data source must support WFS, have a single OGCLayer thatis queryable in order to issue WFS DescribeFeatureType requests&#x60;);const ogcLayerNames &#x3D; dataSource.getOGCLayerNames();const url &#x3D; olUri.appendParams(googAsserts.assertString(dataSource.wfsUrl),{&#x27;REQUEST&#x27;: &#x27;DescribeFeatureType&#x27;,&#x27;SERVICE&#x27;: &#x27;WFS&#x27;,&#x27;VERSION&#x27;: &#x27;2.0.0&#x27;,&#x27;TYPENAME&#x27;: ogcLayerNames});return this.http_.get(url).then((response) &#x3D;&gt; {const format &#x3D; new ngeoWFSDescribeFeatureType();return format.read(response.data);});}/*** @param {!Array.&lt;!Object&gt;} layerCapabilities List of WMS layer capabilities* @param {string} layerName Name of the WMS layer* @return {?Object} Found WMS layer capability* @export*/wmsFindLayerCapability(layerCapabilities, layerName) {let found &#x3D; null;for (const layerCapability of layerCapabilities) {if (layerCapability[&#x27;Name&#x27;] &#x3D;&#x3D;&#x3D; layerName) {found &#x3D; layerCapability;break;} else if (layerCapability[&#x27;Layer&#x27;]) {found &#x3D; this.wmsFindLayerCapability(layerCapability[&#x27;Layer&#x27;], layerName);if (found) {break;}}}return found;}/*** @param {string} baseUrl Base url of the WMS server.* @param {boolean&#x3D;} opt_cache Whether to use the cached capability, if*     available. Enabling this will also store the capability when required*     for the first time. Defaults to: &#x60;true&#x60;.* @return {!angular.IPromise} Promise.* @export*/wmsGetCapabilities(baseUrl, opt_cache) {const cache &#x3D; opt_cache !&#x3D;&#x3D; false;const params &#x3D; {&#x27;REQUEST&#x27;: &#x27;GetCapabilities&#x27;,&#x27;SERVICE&#x27;: &#x27;WMS&#x27;,&#x27;VERSION&#x27;: &#x27;1.3.0&#x27;};const url &#x3D; olUri.appendParams(baseUrl, params);let promise;if (!cache || !this.wmsGetCapabilitiesPromises_[baseUrl]) {promise &#x3D; this.http_.get(url).then((response) &#x3D;&gt; {const format &#x3D; new olFormatWMSCapabilities();return format.read(response.data);});} else if (cache &amp;&amp; this.wmsGetCapabilitiesPromises_[baseUrl]) {promise &#x3D; this.wmsGetCapabilitiesPromises_[baseUrl];}googAsserts.assert(promise);if (cache &amp;&amp; !this.wmsGetCapabilitiesPromises_[baseUrl]) {this.wmsGetCapabilitiesPromises_[baseUrl] &#x3D; promise;}return promise;}/*** @param {!Array.&lt;!Object&gt;} layerCapabilities List of WMTS layer capabilities* @param {string} layerName Name of the WMTS layer, a.k.a. the identifier.* @return {?Object} Found WTMS layer capability* @export*/wmtsFindLayerCapability(layerCapabilities, layerName) {let found &#x3D; null;for (const layerCapability of layerCapabilities) {if (layerCapability[&#x27;Identifier&#x27;] &#x3D;&#x3D;&#x3D; layerName) {found &#x3D; layerCapability;break;}}return found;}/*** @param {string} url Url of the WMTS server. Note that it must contain*     all required arguments.* @param {boolean&#x3D;} opt_cache Whether to use the cached capability, if*     available. Enabling this will also store the capability when required*     for the first time. Defaults to: &#x60;true&#x60;.* @return {!angular.IPromise} Promise.* @export*/wmtsGetCapabilities(url, opt_cache) {const cache &#x3D; opt_cache !&#x3D;&#x3D; false;let promise;if (!cache || !this.wmtsGetCapabilitiesPromises_[url]) {promise &#x3D; this.http_.get(url).then((response) &#x3D;&gt; {const format &#x3D; new olFormatWMTSCapabilities();return format.read(response.data);});} else if (cache &amp;&amp; this.wmtsGetCapabilitiesPromises_[url]) {promise &#x3D; this.wmtsGetCapabilitiesPromises_[url];}googAsserts.assert(promise);if (cache &amp;&amp; !this.wmtsGetCapabilitiesPromises_[url]) {this.wmtsGetCapabilitiesPromises_[url] &#x3D; promise;}return promise;}// &#x3D;&#x3D;&#x3D; PRIVATE methods &#x3D;&#x3D;&#x3D;/*** Handles the response of multiple promises that did either* WMS GetFeatureInfo or WFS GetFeature requests, in which the result is* a hash with key being the data source id and value the array of features.** The response object itself is an array, one item being one result per* promise. The idea is to return a single hash by combining the result* objects.** The keys are always unique, i.e. there can be multiple result objects for* the same data source id.** @param {!Array.&lt;ngeox.QuerentResult&gt;} response Response.* @return {ngeox.QuerentResult} Hash of features by data source ids.* @private*/handleCombinedQueryResult_(response) {const combinedHash &#x3D; {};for (const hash of response) {for (const dataSourceIdStr in hash) {const dataSourceId &#x3D; Number(dataSourceIdStr);combinedHash[dataSourceId] &#x3D; hash[dataSourceId];}}return combinedHash;}/*** Handles the result of a single WMS GetFeatureInfo or WFS GetFeature* request. Read features from the response and return them.** @param {!Array.&lt;!ngeo.datasource.OGC&gt;} dataSources List of*     queryable data sources that were used to do the query.* @param {number} limit The maximum number of features to get with the query.* @param {boolean} wfs Whether the query was WFS or WMS.* @param {angular.IHttpResponse|number} response Response.* @return {ngeox.QuerentResult} Hash of features by data source ids.* @private*/handleQueryResult_(dataSources, limit, wfs, response) {const hash &#x3D; {};for (const dataSource of dataSources) {let features;let tooManyFeatures;let totalFeatureCount;if (typeof response &#x3D;&#x3D;&#x3D; &#x27;number&#x27;) {features &#x3D; [];tooManyFeatures &#x3D; true;totalFeatureCount &#x3D; response;} else {if (dataSource instanceof ngeoDatasourceOGC) {features &#x3D; this.readAndTypeFeatures_(dataSource, response.data, wfs);} else {features &#x3D; [];}}const dataSourceId &#x3D; dataSource.id;this.setUniqueIds_(features, dataSource.id);hash[dataSourceId] &#x3D; {features,limit,tooManyFeatures,totalFeatureCount};}return hash;}/*** Read and assign the type of the feature to each feature in the data.* The type will be stocked in the properties of the features as* &quot;ngeo_feature_type_&quot;.* @param {ngeo.datasource.OGC} dataSource used to read the features.* @param {Document | Node | Object | string} data the response data.* @param {boolean} wfs Whether the query was WFS or WMS.* @return {Array.&lt;ol.Feature&gt;} returned features with a type in each features.* @private*/readAndTypeFeatures_(dataSource, data, wfs) {const features &#x3D; [];let readFeatures;// Copy the types to be able to set it AND iterate on it.const featureTypes &#x3D; this.getSetOlFormatTypes_(dataSource, wfs).slice();featureTypes.forEach((type) &#x3D;&gt; {// Assign temporarily a single feature type to read features separately.this.getSetOlFormatTypes_(dataSource, wfs, [type]);if (wfs) {readFeatures &#x3D; dataSource.wfsFormat.readFeatures(data);} else {readFeatures &#x3D; dataSource.wmsFormat.readFeatures(data);}if (readFeatures.length &gt; 0) {readFeatures.forEach((feature) &#x3D;&gt; {feature.set(&#x27;ngeo_feature_type_&#x27;, type);features.push(feature);});}});// Re-set the value to the datasource.xxxFormat to be able to re-use// it later (in another query);this.getSetOlFormatTypes_(dataSource, wfs, featureTypes);return features;}/*** Return the types defined in the format of the datasource. Can set the* types if one is given.* @param {ngeo.datasource.OGC} dataSource that contains the format object.* @param {boolean} wfs Whether the query was WFS or WMS.* @param {Array.&lt;string&gt;&#x3D;} opt_types An array of type if you want to set the*     type of the format object.* @return {Array.&lt;string&gt;} The types defined in the format.* @private*/getSetOlFormatTypes_(dataSource, wfs, opt_types) {let types;if (wfs) {if (opt_types) {dataSource.wfsFormat.setFeatureType(opt_types);}types &#x3D; dataSource.wfsFormat.getFeatureType();} else {if (opt_types) {dataSource.wmsFormat.setLayers(opt_types);}types &#x3D; dataSource.wmsFormat.getLayers();}if (!types) {return [];}return (Array.isArray(types)) ? types : [types];}/*** Issue WFS GetFeature requests using the given combined data sources, map* and optional filters.** @param {!ngeo.query.Querent.CombinedDataSources} combinedDataSources Combined*     data sources.* @param {ngeox.IssueGetFeaturesOptions} options Options.* @return {angular.IPromise} Promise.* @private*/issueCombinedWFS_(combinedDataSources, options) {const promises &#x3D; [];// The &#x27;limit&#x27; option is mandatory in the querent serviceconst maxFeatures &#x3D; googAsserts.assertNumber(options.limit);const map &#x3D; options.map;const view &#x3D; map.getView();const resolution &#x3D; googAsserts.assertNumber(view.getResolution());const projection &#x3D; view.getProjection();const srsName &#x3D; projection.getCode();const wfsCount &#x3D; options.wfsCount &#x3D;&#x3D;&#x3D; true;// (1) Extent (bbox), which is optional, i.e. its value can stay undefinedlet bbox;const coordinate &#x3D; options.coordinate;if (coordinate) {const tolerancePx &#x3D; options.tolerancePx;googAsserts.assert(tolerancePx);const tolerance &#x3D; tolerancePx * resolution;bbox &#x3D; olExtent.buffer(olExtent.createOrUpdateFromCoordinate(coordinate),tolerance);} else {bbox &#x3D; options.extent;}// (2) Launch one request per combinaison of data sourcesconst wfsFormat &#x3D; new olFormatWFS();const xmlSerializer &#x3D; new XMLSerializer();for (const dataSources of combinedDataSources) {let getFeatureCommonOptions;let featureNS;let featureTypes &#x3D; [];let url;const params &#x3D; {};// (3) Build query optionsfor (const dataSource of dataSources) {// (a) Create common options, if not done yetif (!getFeatureCommonOptions) {featureNS &#x3D; dataSource.wfsFeatureNS;const featurePrefix &#x3D; dataSource.wfsFeaturePrefix;const geometryName &#x3D; dataSource.geometryName;const outputFormat &#x3D; dataSource.wfsOutputFormat;getFeatureCommonOptions &#x3D; {bbox,featureNS,featurePrefix,geometryName,outputFormat,srsName};url &#x3D; dataSource.wfsUrl;// All data sources combined share the same active dimensionsObject.assign(params, dataSource.activeDimensions);}// (b) Add queryable layer names in featureTypes arrayfeatureTypes &#x3D; featureTypes.concat(dataSource.getInRangeOGCLayerNames(resolution, true));// (c) Add filter, if any. If the case, then only one data source//     is expected to be used for this request.let filter;if (options.filter) {filter &#x3D; this.ngeoRuleHelper_.createFilter({dataSource: dataSource,filter: options.filter,incDimensions: true,incTime: true});} else if ((dataSource.filterRules &amp;&amp; dataSource.filterRules.length) ||dataSource.timeRangeValue ||(dataSource.dimensionsFiltersConfig &amp;&amp; Object.keys(dataSource.dimensionsFiltersConfig).length &gt; 0)) {googAsserts.assert(dataSources.length &#x3D;&#x3D;&#x3D; 1,&#x60;A data source having filterRules or timeRangeValue should issuea single query, alone.&#x60;);filter &#x3D; this.ngeoRuleHelper_.createFilter({dataSource: dataSource,incDimensions: true,incTime: true,srsName: srsName});}if (filter) {getFeatureCommonOptions[&#x27;filter&#x27;] &#x3D; filter;}}googAsserts.assert(getFeatureCommonOptions);getFeatureCommonOptions.featureTypes &#x3D; featureTypes;googAsserts.assert(url);// (4) Build query then launch////     If we require to do a WFS GetFeature request with//     &#x60;resultType: &#x27;hits&#x27;&#x60; first, do so. In that case, if there would//     be too many features returned, no GetFeature is done thereafter//     and the data sources will return empty arrays in the returned//     response.////     If we do not need to count features first, then proceed with//     an normal WFS GetFeature request.const getFeatureDefer &#x3D; this.q_.defer();promises.push(getFeatureDefer.promise.then(this.handleQueryResult_.bind(this, dataSources, maxFeatures, true)));// (4.1) Count, if requiredlet countPromise;if (wfsCount) {const getCountOptions &#x3D; /** @type {olx.format.WFSWriteGetFeatureOptions} */ (Object.assign({resultType: &#x27;hits&#x27;},getFeatureCommonOptions));const featureCountXml &#x3D; wfsFormat.writeGetFeature(getCountOptions);const featureCountRequest &#x3D; xmlSerializer.serializeToString(featureCountXml);const canceler &#x3D; this.registerCanceler_();countPromise &#x3D; this.http_.post(url,featureCountRequest,{params: params,headers: {&#x27;Content-Type&#x27;: &#x27;text/xml; charset&#x3D;UTF-8&#x27;},timeout: canceler.promise}).then(((response) &#x3D;&gt; {const meta &#x3D; dataSources[0].wfsFormat.readFeatureCollectionMetadata(response.data);return meta[&#x27;numberOfFeatures&#x27;];}).bind(this));} else {countPromise &#x3D; this.q_.resolve();}// (4.2) After count, do GetFeature (if required)countPromise.then((numberOfFeatures) &#x3D;&gt; {// &#x60;true&#x60; is returned if a count request was made AND there would// be too many features.if (numberOfFeatures &#x3D;&#x3D;&#x3D; undefined || numberOfFeatures &lt; maxFeatures) {const getFeatureOptions &#x3D; /** @type {olx.format.WFSWriteGetFeatureOptions} */ (Object.assign({maxFeatures},getFeatureCommonOptions));const featureRequestXml &#x3D; wfsFormat.writeGetFeature(getFeatureOptions);const featureRequest &#x3D; xmlSerializer.serializeToString(featureRequestXml);googAsserts.assertString(url);const canceler &#x3D; this.registerCanceler_();this.http_.post(url,featureRequest,{params: params,headers: {&#x27;Content-Type&#x27;: &#x27;text/xml; charset&#x3D;UTF-8&#x27;},timeout: canceler.promise}).then((response) &#x3D;&gt; {getFeatureDefer.resolve(response);});} else {getFeatureDefer.resolve(numberOfFeatures);}});}return this.q_.all(promises).then(this.handleCombinedQueryResult_.bind(this));}/*** Issue WMS GetFeatureInfo requests using the given combined data sources,* map and optional filters.** @param {!ngeo.query.Querent.CombinedDataSources} combinedDataSources Combined*     data sources.* @param {ngeox.IssueGetFeaturesOptions} options Options.* @return {angular.IPromise} Promise.* @private*/issueCombinedWMS_(combinedDataSources, options) {const promises &#x3D; [];// The &#x27;limit&#x27; option is mandatory in the querent serviceconst FEATURE_COUNT &#x3D; googAsserts.assertNumber(options.limit);const map &#x3D; options.map;const view &#x3D; map.getView();const resolution &#x3D; googAsserts.assertNumber(view.getResolution());const projection &#x3D; view.getProjection();const projCode &#x3D; projection.getCode();// (1) Coordinate, which is required to issue WMS GetFeatureInfo requestsconst coordinate &#x3D; options.coordinate;googAsserts.assert(coordinate);// (2) Launch one request per combinaison of data sourcesfor (const dataSources of combinedDataSources) {let url;let LAYERS &#x3D; [];let INFO_FORMAT;let activeDimensionsSet &#x3D; false;const params &#x3D; {};let filterString &#x3D; null;let filtrableLayerName &#x3D; null;// (3) Build query optionsfor (const dataSource of dataSources) {// (a) Create common options, if not done yetif (!INFO_FORMAT) {INFO_FORMAT &#x3D; dataSource.wmsInfoFormat;url &#x3D; dataSource.wmsUrl;}// (b) Add queryable layer names in featureTypes arrayLAYERS &#x3D; LAYERS.concat(dataSource.getInRangeOGCLayerNames(resolution, true));// (c) Manage active dimensions, which are added directly to the//     query parameters. Note that this occurs only ONCE, i.e.//     for the first data source, because all data sources here have//     been combined together, therefore they share the same active//     dimensions.if (!activeDimensionsSet) {Object.assign(params, dataSource.activeDimensions);activeDimensionsSet &#x3D; true;}// (d) Add filter, if any. If there is a filter on the data source,//     then it is expected that one request will be sent for this//     data source only.if (dataSource.filterRules &amp;&amp; dataSource.filterRules.length) {googAsserts.assert(dataSources.length &#x3D;&#x3D;&#x3D; 1);filtrableLayerName &#x3D; dataSource.getFiltrableOGCLayerName();filterString &#x3D; this.ngeoRuleHelper_.createFilterString({dataSource: dataSource,srsName: projCode});}// (e) Add TIME parameter if the data source has a time range value.//     If that&#x27;s the case, then it is expected that one request will be//     sent for this data source only.if (dataSource.timeRangeValue !&#x3D;&#x3D; null &amp;&amp; dataSource.timeProperty) {googAsserts.assert(dataSources.length &#x3D;&#x3D;&#x3D; 1);params[&#x27;TIME&#x27;] &#x3D; this.ngeoWMSTime_.formatWMSTimeParam(dataSource.timeProperty,dataSource.timeRangeValue);}}params[&#x27;LAYERS&#x27;] &#x3D; LAYERS;params[&#x27;QUERY_LAYERS&#x27;] &#x3D; LAYERS;// Manage &#x27;FILTER&#x27; parameterif (filterString &amp;&amp; filtrableLayerName) {let filterParamValue &#x3D; null;if (LAYERS.length &#x3D;&#x3D;&#x3D; 1) {// When there&#x27;s only one layer in the &#x60;LAYERS&#x60; parameters, then// the filter string is given as-is.filterParamValue &#x3D; filterString;} else {// When there&#x27;s more then one layer, then each filter must be wrapped// between parenthesis and the order must also match the &#x60;LAYERS&#x60;// parameter as well.const filterParamValues &#x3D; [];for (let i &#x3D; 0, ii &#x3D; LAYERS.length; i &lt; ii; i++) {if (LAYERS[i] &#x3D;&#x3D;&#x3D; filtrableLayerName) {filterParamValues.push(&#x60;(${filterString})&#x60;);} else {filterParamValues.push(&#x27;()&#x27;);}}filterParamValue &#x3D; filterParamValues.join(&#x27;&#x27;);}params[&#x27;FILTER&#x27;] &#x3D; filterParamValue;}googAsserts.assert(url);const wmsSource &#x3D; new olSourceImageWMS({params,url});// (4) Build query url, then launchconst wmsGetFeatureInfoUrl &#x3D; googAsserts.assertString(wmsSource.getGetFeatureInfoUrl(coordinate, resolution, projCode, {// Without extern, quoting is necessary&#x27;FEATURE_COUNT&#x27;: FEATURE_COUNT,&#x27;INFO_FORMAT&#x27;: INFO_FORMAT}));const canceler &#x3D; this.registerCanceler_();promises.push(this.http_.get(wmsGetFeatureInfoUrl,{timeout: canceler.promise}).then(this.handleQueryResult_.bind(this, dataSources, FEATURE_COUNT, false)));}return this.q_.all(promises).then(this.handleCombinedQueryResult_.bind(this));}/*** @param {!Array.&lt;ngeox.datasource.OGC&gt;} dataSources List of*     queryable data sources that supports WFS.* @return {ngeo.query.Querent.CombinedDataSources} Combined lists of data sources.* @private*/getCombinableWFSDataSources_(dataSources) {const combinableDataSources &#x3D; [];const notCombinableDataSources &#x3D; [];for (const dataSource of dataSources) {if (dataSource.combinableForWFS) {let combined &#x3D; false;for (const combinableDataSource of combinableDataSources) {if (dataSource.combinableWithDataSourceForWFS(combinableDataSource[0])) {combinableDataSource.push(dataSource);combined &#x3D; true;}}if (!combined) {combinableDataSources.push([dataSource]);}} else {notCombinableDataSources.push([dataSource]);}}return combinableDataSources.concat(notCombinableDataSources);}/*** @param {!Array.&lt;ngeox.datasource.OGC&gt;} dataSources List of*     queryable data sources that supports WMS.* @return {ngeo.query.Querent.CombinedDataSources} Combined lists of data sources.* @private*/getCombinableWMSDataSources_(dataSources) {const combinableDataSources &#x3D; [];const notCombinableDataSources &#x3D; [];for (const dataSource of dataSources) {if (dataSource.combinableForWMS) {let combined &#x3D; false;for (const combinableDataSource of combinableDataSources) {if (dataSource.combinableWithDataSourceForWMS(combinableDataSource[0])) {combinableDataSource.push(dataSource);combined &#x3D; true;}}if (!combined) {combinableDataSources.push([dataSource]);}} else {notCombinableDataSources.push([dataSource]);}}return combinableDataSources.concat(notCombinableDataSources);}/*** Checks if a data source can be queried, which requires it to be:* - visible* - in range* - queryable (using the native getter)* - have at least one OGC layer in range of current map view resolution.** @param {ngeo.datasource.DataSource} ds Data source* @param {number} res Resolution.* @return {boolean} Whether the data source is queryable* @private*/isDataSourceQueryable_(ds, res) {let queryable &#x3D; ds.visible &amp;&amp; ds.inRange &amp;&amp; ds.queryable;if (queryable &amp;&amp; ds instanceof ngeoDatasourceOGC) {const ogcDS &#x3D; /** @type {!ngeo.datasource.OGC} */ (ds);queryable &#x3D; ogcDS.isAnyOGCLayerInRange(res, true);}return queryable;}/*** Make sure that feature ids are unique, because the same features might* be returned for different layers.* @param {Array.&lt;ol.Feature&gt;} features Features* @param {number} dataSourceId Data source id.* @private*/setUniqueIds_(features, dataSourceId) {features.forEach((feature) &#x3D;&gt; {if (feature.getId() !&#x3D;&#x3D; undefined) {const id &#x3D; &#x60;${dataSourceId}_${feature.getId()}&#x60;;feature.setId(id);}});}/*** @return {angular.IDeferred} A deferred that can be resolved to cancel a*    HTTP request.* @private*/registerCanceler_() {const canceler &#x3D; this.q_.defer();this.requestCancelers_.push(canceler);return canceler;}/*** @private*/cancelStillRunningRequests_() {for (const canceler of this.requestCancelers_) {canceler.resolve();}this.requestCancelers_.length &#x3D; 0;}}</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/camptocamp/ngeo/blob/60bd072/src/query/Querent.js#L16">src/query/Querent.js:16</a></li>
+						</ul>
+					</aside>
+				</section>
+			</section>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="globals  ">
+						<a href="../globals.html"><em>Globals</em></a>
+					</li>
+					<li class="current tsd-kind-external-module">
+						<a href="_src_query_querent_.html">"src/query/<wbr>Querent"</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+					<li class=" tsd-kind-variable tsd-parent-kind-external-module">
+						<a href="_src_query_querent_.html#exports" class="tsd-kind-icon">exports</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-module"><span class="tsd-kind-icon">Module</span></li>
+				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
+				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+				<li class="tsd-kind-enum-member"><span class="tsd-kind-icon">Enumeration member</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-enum"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-enum"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-interface"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-interface"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class"><span class="tsd-kind-icon">Accessor</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-class"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
+				<li class="tsd-kind-call-signature tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="../assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="../assets/js/search.js"><' + '/script>');</script>
+</body>
+</html>

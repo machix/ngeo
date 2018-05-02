@@ -1,0 +1,385 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>&quot;src/olcs/controls3d&quot; | ngeo</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.js" data-base="..">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="../index.html" class="title">ngeo</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+							<input type="checkbox" id="tsd-filter-only-exported" />
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="../globals.html">Globals</a>
+				</li>
+				<li>
+					<a href="_src_olcs_controls3d_.html">&quot;src/olcs/controls3d&quot;</a>
+				</li>
+			</ul>
+			<h1>External module &quot;src/olcs/controls3d&quot;</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<section class="tsd-panel-group tsd-index-group">
+				<h2>Index</h2>
+				<section class="tsd-panel tsd-index-panel">
+					<div class="tsd-index-content">
+						<section class="tsd-index-section ">
+							<h3>Variables</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-variable tsd-parent-kind-external-module tsd-is-not-exported"><a href="_src_olcs_controls3d_.html#controller" class="tsd-kind-icon">Controller</a></li>
+								<li class="tsd-kind-variable tsd-parent-kind-external-module"><a href="_src_olcs_controls3d_.html#exports" class="tsd-kind-icon">exports</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section tsd-is-not-exported">
+							<h3>Functions</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported"><a href="_src_olcs_controls3d_.html#ngeoolcscontrols3dtemplateurlinjectable" class="tsd-kind-icon">ngeo<wbr>Olcs<wbr>Controls3d<wbr>Template<wbr>Url<wbr>Injectable</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported"><a href="_src_olcs_controls3d_.html#shouldupdate" class="tsd-kind-icon">should<wbr>Update</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section tsd-is-not-exported">
+							<h3>Object literals</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-object-literal tsd-parent-kind-external-module tsd-is-not-exported"><a href="_src_olcs_controls3d_.html#component" class="tsd-kind-icon">component</a></li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Variables</h2>
+				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-external-module tsd-is-not-exported">
+					<a name="controller" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> Controller</h3>
+					<div class="tsd-signature tsd-kind-icon">Controller<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Controller</span><span class="tsd-signature-symbol"> =&nbsp;class {/*** @ngInject* @param {!jQuery} $element The element* @param {ngeo.olcs.Service} ngeoOlcsService The ol-cesium service.*/constructor($element, ngeoOlcsService) {/*** @type {jQuery}* @private*/this.element_ &#x3D; $element;/*** @type {olcs.contrib.Manager}* @export*/this.ol3dm;/*** @type {number}* @export*/this.minTilt;/*** @type {number}* @private*/this.maxTilt;/*** @type {jQuery}* @private*/this.tiltRightEl_;/*** @type {jQuery}* @private*/this.tiltLeftEl_;/*** @type {jQuery}* @private*/this.rotation3dEl_;/*** @type {jQuery}* @private*/this.angle3dEl_;/*** @type {number}* @private*/this.previousRotation_;/*** @type {Cesium.Matrix4}* @private*/this.previousViewMatrix_;/*** @type {number}* @private*/this.animationFrameRequestId_;/*** @type {ngeo.olcs.Service}* @private*/this.olcsService_ &#x3D; ngeoOlcsService;}updateWidget_() {const newRotation &#x3D; this.ol3dm.getOl3d().getOlView().getRotation();if (shouldUpdate(this.previousRotation_, newRotation)) {this.rotateElement_(this.rotation3dEl_, newRotation);this.previousRotation_ &#x3D; newRotation;}const newViewMatrix &#x3D; this.ol3dm.getCesiumViewMatrix();if (!Cesium.Matrix4.equalsEpsilon(this.previousViewMatrix_, newViewMatrix, 1e-5)) {const newTilt &#x3D; this.ol3dm.getTiltOnGlobe(); // this is expensive!!if (Number.isFinite(newTilt || 0)) { // Workaround https://github.com/google/closure-compiler/pull/2712this.rotateElement_(this.angle3dEl_, newTilt);this.previousViewMatrix_ &#x3D; Cesium.Matrix4.clone(newViewMatrix);// if min or max tilt is reached, disable the tilting buttonsconst buffer &#x3D; 0.01; // radif (newTilt - this.minTilt &lt; buffer) {this.tiltRightEl_.addClass(&#x27;ngeo-right-inactive&#x27;);} else if (this.tiltRightEl_.hasClass(&#x27;ngeo-right-inactive&#x27;)) {this.tiltRightEl_.removeClass(&#x27;ngeo-right-inactive&#x27;);}if (this.maxTilt - newTilt &lt; buffer) {this.tiltLeftEl_.addClass(&#x27;ngeo-left-inactive&#x27;);} else if (this.tiltLeftEl_.hasClass(&#x27;ngeo-left-inactive&#x27;)) {this.tiltLeftEl_.removeClass(&#x27;ngeo-left-inactive&#x27;);}}}this.animationFrameRequestId_ &#x3D; requestAnimationFrame(() &#x3D;&gt; this.updateWidget_());}$onDestroy() {if (this.animationFrameRequestId_) {cancelAnimationFrame(this.animationFrameRequestId_);}}$onInit() {if (this.minTilt &#x3D;&#x3D;&#x3D; undefined) {this.minTilt &#x3D; 0;}if (this.maxTilt &#x3D;&#x3D;&#x3D; undefined) {this.maxTilt &#x3D; 7 * Math.PI / 16;}if (!this.ol3dm) {this.ol3dm &#x3D; googAsserts.assert(this.olcsService_.getManager());}this.tiltRightEl_ &#x3D; this.element_.find(&#x27;.ngeo-tilt-right&#x27;);this.tiltLeftEl_ &#x3D; this.element_.find(&#x27;.ngeo-tilt-left&#x27;);this.rotation3dEl_ &#x3D; this.element_.find(&#x27;.ngeo-rotation3d&#x27;);this.angle3dEl_ &#x3D; this.element_.find(&#x27;.ngeo-angle3d&#x27;);this.updateWidget_();}/*** @param {jQuery} element Element to rotate.* @param {(number|undefined)} angle Angle in radians* @private*/rotateElement_(element, angle) {const r &#x3D; &#x60;rotate(${angle}rad)&#x60;;element.css({&#x27;-moz-transform&#x27;: r,&#x27;-webkit-transform&#x27;: r,&#x27;-o-transform&#x27;: r,&#x27;-ms-transform&#x27;: r,&#x27;transform&#x27;: r});}/*** @param {number} angle Angle in degrees.* @export*/rotate(angle) {angle &#x3D; Cesium.Math.toRadians(angle);this.ol3dm.setHeading(angle);}/*** @param {number} angle Angle in degrees.* @export*/tilt(angle) {angle &#x3D; Cesium.Math.toRadians(angle);const tiltOnGlobe &#x3D; this.ol3dm.getTiltOnGlobe();if (tiltOnGlobe + angle &lt; this.minTilt) {angle &#x3D; this.minTilt - tiltOnGlobe;} else if (tiltOnGlobe + angle &gt; this.maxTilt) {angle &#x3D; this.maxTilt - tiltOnGlobe;}const scene &#x3D; this.ol3dm.getCesiumScene();olcsCore.rotateAroundBottomCenter(scene, angle);}/*** @param {number} delta -1 to zoom out and 1 to zoom in.* @export*/zoom(delta) {const view &#x3D; this.ol3dm.getOlView();const cur &#x3D; view.getResolution();const newResolution &#x3D; view.constrainResolution(cur, delta);if (view.getAnimating()) {view.cancelAnimations();}view.animate({resolution: newResolution,duration: 250,easing: olEasing.easeOut});}}</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/camptocamp/ngeo/blob/60bd072/src/olcs/controls3d.js#L15">src/olcs/controls3d.js:15</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-external-module">
+					<a name="exports" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> exports</h3>
+					<div class="tsd-signature tsd-kind-icon">exports<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">IModule</span><span class="tsd-signature-symbol"> =&nbsp;angular.module(&#x27;ngeoOlcsControls3d&#x27;, [])</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/camptocamp/ngeo/blob/60bd072/src/olcs/controls3d.js#L7">src/olcs/controls3d.js:7</a></li>
+						</ul>
+					</aside>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group tsd-is-not-exported">
+				<h2>Functions</h2>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported">
+					<a name="ngeoolcscontrols3dtemplateurlinjectable" class="tsd-anchor"></a>
+					<h3>ngeo<wbr>Olcs<wbr>Controls3d<wbr>Template<wbr>Url<wbr>Injectable</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported">
+						<li class="tsd-signature tsd-kind-icon">ngeo<wbr>Olcs<wbr>Controls3d<wbr>Template<wbr>Url<wbr>Injectable<span class="tsd-signature-symbol">(</span>$attrs<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, ngeoOlcsControls3dTemplateUrl<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/camptocamp/ngeo/blob/60bd072/src/olcs/controls3d.js#L223">src/olcs/controls3d.js:223</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<dl class="tsd-comment-tags">
+									<dt>nginject</dt>
+									<dd></dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>$attrs: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Attributes.</p>
+									</div>
+								</li>
+								<li>
+									<h5>ngeoOlcsControls3dTemplateUrl: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Template function.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+							<p>Template URL.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported">
+					<a name="shouldupdate" class="tsd-anchor"></a>
+					<h3>should<wbr>Update</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported">
+						<li class="tsd-signature tsd-kind-icon">should<wbr>Update<span class="tsd-signature-symbol">(</span>older<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, newer<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/camptocamp/ngeo/blob/60bd072/src/olcs/controls3d.js#L10">src/olcs/controls3d.js:10</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>older: <span class="tsd-signature-type">any</span></h5>
+								</li>
+								<li>
+									<h5>newer: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group tsd-is-not-exported">
+				<h2>Object literals</h2>
+				<section class="tsd-panel tsd-member tsd-kind-object-literal tsd-parent-kind-external-module tsd-is-not-exported">
+					<a name="component" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> component</h3>
+					<div class="tsd-signature tsd-kind-icon">component<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/camptocamp/ngeo/blob/60bd072/src/olcs/controls3d.js#L256">src/olcs/controls3d.js:256</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Provides the &quot;ngeoOlcsControls3d&quot; component, a widget for
+							controlling the 3D camera.</p>
+						</div>
+						<p>Example:</p>
+						<pre><code>&lt;ngeo-olcs-controls3d ng-<span class="hljs-keyword">if</span>=<span class="hljs-string">"<span class="hljs-subst">$ctrl</span>.manager &amp;&amp; <span class="hljs-subst">$ctrl</span>.manager.is3dEnabled()"</span>&gt;
+&lt;/ngeo-olcs-controls3d&gt;</code></pre><p>By default the directive uses &quot;controls3d.html&quot; as its templateUrl. This
+						can be changed by redefining the &quot;ngeoOlcsControls3dTemplateUrl&quot; value.</p>
+						<p>See our live example: <a href="../examples/simple3d.html">../examples/simple3d.html</a></p>
+						<dl class="tsd-comment-tags">
+							<dt>htmlattribute</dt>
+							<dd><p>{olcs.contrib.Manager} ngeo-olcs-manager The OL-Cesium manager.</p>
+							</dd>
+							<dt>type</dt>
+							<dd><p>{!angular.Component}</p>
+							</dd>
+							<dt>ngdoc</dt>
+							<dd><p>component</p>
+							</dd>
+							<dt>ngname</dt>
+							<dd><p>ngeoOlcsControls3d</p>
+							</dd>
+						</dl>
+					</div>
+					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal tsd-is-not-exported">
+						<a name="component.controller-1" class="tsd-anchor"></a>
+						<h3>controller</h3>
+						<div class="tsd-signature tsd-kind-icon">controller<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Controller</span><span class="tsd-signature-symbol"> =&nbsp;Controller</span></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/camptocamp/ngeo/blob/60bd072/src/olcs/controls3d.js#L262">src/olcs/controls3d.js:262</a></li>
+							</ul>
+						</aside>
+					</section>
+					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal tsd-is-not-exported">
+						<a name="component.templateurl" class="tsd-anchor"></a>
+						<h3>template<wbr>Url</h3>
+						<div class="tsd-signature tsd-kind-icon">template<wbr>Url<span class="tsd-signature-symbol">:</span> <a href="_src_olcs_controls3d_.html#ngeoolcscontrols3dtemplateurlinjectable" class="tsd-signature-type">ngeoOlcsControls3dTemplateUrlInjectable</a><span class="tsd-signature-symbol"> =&nbsp;ngeoOlcsControls3dTemplateUrlInjectable</span></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/camptocamp/ngeo/blob/60bd072/src/olcs/controls3d.js#L263">src/olcs/controls3d.js:263</a></li>
+							</ul>
+						</aside>
+					</section>
+					<section class="tsd-panel tsd-member tsd-kind-object-literal tsd-parent-kind-object-literal tsd-is-not-exported">
+						<a name="component.bindings" class="tsd-anchor"></a>
+						<h3>bindings</h3>
+						<div class="tsd-signature tsd-kind-icon">bindings<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/camptocamp/ngeo/blob/60bd072/src/olcs/controls3d.js#L257">src/olcs/controls3d.js:257</a></li>
+							</ul>
+						</aside>
+						<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal tsd-is-not-exported">
+							<a name="component.bindings.maxtilt" class="tsd-anchor"></a>
+							<h3>max<wbr>Tilt</h3>
+							<div class="tsd-signature tsd-kind-icon">max<wbr>Tilt<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;&lt;?&quot;</span></div>
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/camptocamp/ngeo/blob/60bd072/src/olcs/controls3d.js#L259">src/olcs/controls3d.js:259</a></li>
+								</ul>
+							</aside>
+						</section>
+						<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal tsd-is-not-exported">
+							<a name="component.bindings.mintilt" class="tsd-anchor"></a>
+							<h3>min<wbr>Tilt</h3>
+							<div class="tsd-signature tsd-kind-icon">min<wbr>Tilt<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;&lt;?&quot;</span></div>
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/camptocamp/ngeo/blob/60bd072/src/olcs/controls3d.js#L258">src/olcs/controls3d.js:258</a></li>
+								</ul>
+							</aside>
+						</section>
+						<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal tsd-is-not-exported">
+							<a name="component.bindings.ol3dm" class="tsd-anchor"></a>
+							<h3>ol3dm</h3>
+							<div class="tsd-signature tsd-kind-icon">ol3dm<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;&lt;?&quot;</span></div>
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/camptocamp/ngeo/blob/60bd072/src/olcs/controls3d.js#L260">src/olcs/controls3d.js:260</a></li>
+								</ul>
+							</aside>
+						</section>
+					</section>
+				</section>
+			</section>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="globals  ">
+						<a href="../globals.html"><em>Globals</em></a>
+					</li>
+					<li class="current tsd-kind-external-module">
+						<a href="_src_olcs_controls3d_.html">"src/olcs/controls3d"</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+					<li class=" tsd-kind-variable tsd-parent-kind-external-module tsd-is-not-exported">
+						<a href="_src_olcs_controls3d_.html#controller" class="tsd-kind-icon">Controller</a>
+					</li>
+					<li class=" tsd-kind-variable tsd-parent-kind-external-module">
+						<a href="_src_olcs_controls3d_.html#exports" class="tsd-kind-icon">exports</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported">
+						<a href="_src_olcs_controls3d_.html#ngeoolcscontrols3dtemplateurlinjectable" class="tsd-kind-icon">ngeo<wbr>Olcs<wbr>Controls3d<wbr>Template<wbr>Url<wbr>Injectable</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported">
+						<a href="_src_olcs_controls3d_.html#shouldupdate" class="tsd-kind-icon">should<wbr>Update</a>
+					</li>
+					<li class=" tsd-kind-object-literal tsd-parent-kind-external-module tsd-is-not-exported">
+						<a href="_src_olcs_controls3d_.html#component" class="tsd-kind-icon">component</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-module"><span class="tsd-kind-icon">Module</span></li>
+				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
+				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+				<li class="tsd-kind-enum-member"><span class="tsd-kind-icon">Enumeration member</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-enum"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-enum"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-interface"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-interface"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class"><span class="tsd-kind-icon">Accessor</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-class"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
+				<li class="tsd-kind-call-signature tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="../assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="../assets/js/search.js"><' + '/script>');</script>
+</body>
+</html>

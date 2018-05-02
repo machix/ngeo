@@ -1,0 +1,183 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>&quot;contribs/gmf/src/datasource/ExternalDataSourcesManager&quot; | ngeo</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.js" data-base="..">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="../index.html" class="title">ngeo</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+							<input type="checkbox" id="tsd-filter-only-exported" />
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="../globals.html">Globals</a>
+				</li>
+				<li>
+					<a href="_contribs_gmf_src_datasource_externaldatasourcesmanager_.html">&quot;contribs/gmf/src/datasource/ExternalDataSourcesManager&quot;</a>
+				</li>
+			</ul>
+			<h1>External module &quot;contribs/gmf/src/datasource/ExternalDataSourcesManager&quot;</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<section class="tsd-panel-group tsd-index-group">
+				<h2>Index</h2>
+				<section class="tsd-panel tsd-index-panel">
+					<div class="tsd-index-content">
+						<section class="tsd-index-section ">
+							<h3>Variables</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-variable tsd-parent-kind-external-module"><a href="_contribs_gmf_src_datasource_externaldatasourcesmanager_.html#exports" class="tsd-kind-icon">exports</a></li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Variables</h2>
+				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-external-module">
+					<a name="exports" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> exports</h3>
+					<div class="tsd-signature tsd-kind-icon">exports<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">exports</span><span class="tsd-signature-symbol"> =&nbsp;class {/*** External data sources come remote online resources, such as WMS/WMTS* servers, and also files such as KML/GXP. This service is responsible of* creating, storing and managing them.** @param {!angularGettext.Catalog} gettextCatalog service.* @param {!angular.IInjectorService} $injector Main injector.* @param {!angular.IQService} $q The Angular $q service.* @param {!angular.IScope} $rootScope The rootScope provider.* @param {!ngeo.datasource.DataSources} ngeoDataSources Ngeo data sources service.* @param {!ngeo.misc.File} ngeoFile Ngeo file.* @param {!ngeo.map.LayerHelper} ngeoLayerHelper Ngeo layer helper service* @struct* @ngInject* @ngdoc service* @ngname gmfExternalDataSourcesManager*/constructor(gettextCatalog, $injector, $q, $rootScope, ngeoDataSources,ngeoFile, ngeoLayerHelper) {// &#x3D;&#x3D;&#x3D; Injected properties &#x3D;&#x3D;&#x3D;/*** @type {!angular.IInjectorService}* @private*/this.injector_ &#x3D; $injector;/*** @type {!angular.IQService}* @private*/this.q_ &#x3D; $q;/*** @type {!angular.IScope}* @private*/this.rootScope_ &#x3D; $rootScope;/*** The collection of DataSources from ngeo. When this service creates* a data source, its gets added to that collection.* @type {!ngeox.datasource.DataSources}* @private*/this.dataSources_ &#x3D; ngeoDataSources.collection;/*** @type {!ngeo.misc.File}* @private*/this.ngeoFile_ &#x3D; ngeoFile;/*** @type {!ngeo.map.LayerHelper}* @private*/this.ngeoLayerHelper_ &#x3D; ngeoLayerHelper;// &#x3D;&#x3D;&#x3D; Inner properties &#x3D;&#x3D;&#x3D;/*** All external data sources that are created are stored here. The key* is the data source id.** Note: This cache is never cleaned and elements are never removed from it.* If a data source with an id already exists in this cache, it is used* instead of being re-created.** @type {Object.&lt;number, !ngeo.datasource.OGC|!ngeo.datasource.File&gt;}* @private*/this.extDataSources_ &#x3D; {};/*** File external data sources, with the key being the file name.* @type {Object.&lt;string, !ngeo.datasource.File&gt;}* @private*/this.files_ &#x3D; {};/*** @type {?ol.Map}* @private*/this.map_ &#x3D; null;/*** Group that contains file data sources.* @type {!ngeo.datasource.FileGroup}* @private*/this.fileGroup_ &#x3D; new ngeoDatasourceFileGroup({dataSources: [],injector: this.injector_,title: gettextCatalog.getString(&#x27;Local files&#x27;)});/*** Collection of WMS groups.* @type {!ol.Collection.&lt;!ngeo.datasource.WMSGroup&gt;}* @private*/this.wmsGroupsCollection_ &#x3D; new olCollection();/*** Collection of groups for WMTS data sources.* @type {!ol.Collection.&lt;!ngeo.datasource.OGCGroup&gt;}* @private*/this.wmtsGroupsCollection_ &#x3D; new olCollection();/*** Cache that stores the information of a WMTS data source. The key is the* data source id.* @type {!Object.&lt;number, gmfx.datasource.ExternalDataSourcesManagerWMTSCacheItem&gt;}* @private*/this.wmtsCache_ &#x3D; {};olEvents.listen(this.dataSources_, &#x27;remove&#x27;, this.handleDataSourcesRemove_, this);}// &#x3D;&#x3D;&#x3D; File Group &#x3D;&#x3D;&#x3D;/*** @return {!ngeo.datasource.FileGroup} File group.* @export*/get fileGroup() {return this.fileGroup_;}// &#x3D;&#x3D;&#x3D; WMS Groups &#x3D;&#x3D;&#x3D;/*** @param {!ngeo.datasource.WMSGroup} wmsGroup WMS group.* @private*/addWMSGroup_(wmsGroup) {this.wmsGroupsCollection.push(wmsGroup);}/*** @param {!ngeo.datasource.WMSGroup} wmsGroup WMS group.* @private*/removeWMSGroup_(wmsGroup) {this.wmsGroupsCollection.remove(wmsGroup);}/*** @param {string} url Online resource url* @return {?ngeo.datasource.WMSGroup} WMS group.*/getWMSGroup(url) {let found &#x3D; null;for (const wmsGroup of this.wmsGroups) {if (wmsGroup.url &#x3D;&#x3D;&#x3D; url) {found &#x3D; wmsGroup;break;}}return found;}/*** @return {!Array.&lt;!ngeo.datasource.WMSGroup&gt;} List of WMS groups.* @export*/get wmsGroups() {return this.wmsGroupsCollection_.getArray();}/*** @return {!ol.Collection.&lt;!ngeo.datasource.WMSGroup&gt;} Collection of WMS*     groups.* @export*/get wmsGroupsCollection() {return this.wmsGroupsCollection_;}// &#x3D;&#x3D;&#x3D; WMTS Groups &#x3D;&#x3D;&#x3D;/*** @param {!ngeo.datasource.OGCGroup} wmtsGroup Group for WMTS data sources.* @private*/addWMTSGroup_(wmtsGroup) {this.wmtsGroupsCollection.push(wmtsGroup);}/*** @param {!ngeo.datasource.OGCGroup} wmtsGroup Group for WMTS data sources.* @private*/removeWMTSGroup_(wmtsGroup) {this.wmtsGroupsCollection.remove(wmtsGroup);}/*** @param {string} url Online resource url* @return {?ngeo.datasource.OGCGroup} WMTS group.*/getWMTSGroup(url) {let found &#x3D; null;for (const wmtsGroup of this.wmtsGroups) {if (wmtsGroup.url &#x3D;&#x3D;&#x3D; url) {found &#x3D; wmtsGroup;break;}}return found;}/*** @return {!Array.&lt;!ngeo.datasource.OGCGroup&gt;} List of groups for WMTS data*     sources.* @export*/get wmtsGroups() {return this.wmtsGroupsCollection_.getArray();}/*** @return {!ol.Collection.&lt;!ngeo.datasource.OGCGroup&gt;} Collection of groups*     for WMTS data sources.* @export*/get wmtsGroupsCollection() {return this.wmtsGroupsCollection_;}// &#x3D;&#x3D;&#x3D; Other methods &#x3D;&#x3D;&#x3D;/*** @param {!ngeo.datasource.DataSource} dataSource Data source* @return {boolean} Whether the given data source is external or not. To*     be considered external, it needs to be in the external data source*     hash (cache).*/isExternalDataSource(dataSource) {return !!this.extDataSources_[dataSource.id];}/*** @return {ol.layer.Group} Layer group where to push layers created by*     this service.*/get layerGroup() {const map &#x3D; this.map_;googAsserts.assert(map);return this.ngeoLayerHelper_.getGroupFromMap(map,gmfBase.EXTERNALLAYERGROUP_NAME);}/*** @param {?ol.Map} map Map*/set map(map) {this.map_ &#x3D; map;}/*** @param {ol.layer.Layer} layer Layer.* @private*/addLayer_(layer) {this.layerGroup.getLayers().push(layer);}/*** @param {ol.layer.Layer} layer Layer.* @private*/removeLayer_(layer) {this.layerGroup.getLayers().remove(layer);}/*** @param {!Object} layer WMS Capability Layer object.* @param {!Object} capabilities  WMS Capabilities definition* @param {string} url The WMS service url.* @export*/createAndAddDataSourceFromWMSCapability(layer, capabilities, url) {const id &#x3D; exports.getId(layer);const service &#x3D; capabilities[&#x27;Service&#x27;];let dataSource;// (1) Get data source from cache if it exists, otherwise create itif (this.extDataSources_[id]) {dataSource &#x3D; this.extDataSources_[id];} else {const req &#x3D; capabilities[&#x27;Capability&#x27;][&#x27;Request&#x27;];// ogcImageTypeconst formats &#x3D; req[&#x27;GetMap&#x27;][&#x27;Format&#x27;];const imagePngType &#x3D; &#x27;image/png&#x27;;const ogcImageType &#x3D; formats.includes(imagePngType) ?imagePngType : formats[0];// wmsInfoFormatconst infoFormats &#x3D; req[&#x27;GetFeatureInfo&#x27;][&#x27;Format&#x27;];const wmsInfoFormat &#x3D; infoFormats.includes(ngeoDatasourceOGC.WMSInfoFormat.GML) ? ngeoDatasourceOGC.WMSInfoFormat.GML : undefined;// queryableconst queryable &#x3D; layer[&#x27;queryable&#x27;] &#x3D;&#x3D;&#x3D; true &amp;&amp;wmsInfoFormat !&#x3D;&#x3D; undefined;// TODO - MaxScaleDenominator// TODO - MinScaleDenominatordataSource &#x3D; new ngeoDatasourceOGC({id: id,name: layer[&#x27;Title&#x27;],ogcImageType: ogcImageType,ogcLayers: [{name: layer[&#x27;Name&#x27;],queryable: queryable}],ogcType: ngeoDatasourceOGC.Type.WMS,visible: true,wmsInfoFormat: wmsInfoFormat,wmsUrl: url});// Keep a reference to the external data source in the cachethis.extDataSources_[id] &#x3D; dataSource;}// (2) Add data source in WMS group, unless it&#x27;s already in there.//     Will also add the data source to the &#x60;ngeo.DataSources&#x60; collection.//     If the group is created, its inner OL layer is also added to the map.let wmsGroup &#x3D; this.getWMSGroup(url);if (wmsGroup) {if (!wmsGroup.dataSources.includes(dataSource)) {wmsGroup.addDataSource(dataSource);this.dataSources_.push(dataSource);}} else {wmsGroup &#x3D; new ngeoDatasourceWMSGroup({dataSources: [dataSource],injector: this.injector_,title: service[&#x27;Title&#x27;],url: url}, this.ngeoLayerHelper_);this.addLayer_(wmsGroup.layer);this.addWMSGroup_(wmsGroup);this.dataSources_.push(dataSource);}}/*** @param {!Object} layer WTMS Capability Layer object.* @param {!Object} capabilities  WMTS Capabilities definition* @param {string} wmtsUrl The WMTS capabilities url* @export*/createAndAddDataSourceFromWMTSCapability(layer, capabilities, wmtsUrl) {const id &#x3D; exports.getId(layer);// (1) No need to do anything if there&#x27;s already a WMTS data source (and its// layer in the map)if (this.wmtsCache_[id]) {return;}let dataSource;// (2) Get data source from cache if it exists, otherwise create itif (this.extDataSources_[id]) {dataSource &#x3D; this.extDataSources_[id];} else {const name &#x3D; googAsserts.assertString(layer[&#x27;Title&#x27;]);const wmtsLayer &#x3D; googAsserts.assertString(layer[&#x27;Identifier&#x27;]);// TODO - MaxScaleDenominator// TODO - MinScaleDenominatordataSource &#x3D; new ngeoDatasourceOGC({id: id,name: name,ogcType: ngeoDatasourceOGC.Type.WMTS,visible: true,wmtsLayer: wmtsLayer,wmtsUrl: wmtsUrl});// Keep a reference to the external data source in the cachethis.extDataSources_[id] &#x3D; dataSource;}// (3) Get/Create group, then add data source to grouplet wmtsGroup &#x3D; this.getWMTSGroup(wmtsUrl);if (!wmtsGroup) {wmtsGroup &#x3D; new ngeoDatasourceOGCGroup({dataSources: [],title: capabilities[&#x27;ServiceIdentification&#x27;][&#x27;Title&#x27;],url: wmtsUrl});this.addWMTSGroup_(wmtsGroup);}wmtsGroup.addDataSource(dataSource);// (4) Create and add the OL layerconst layerObj &#x3D; this.ngeoLayerHelper_.createWMTSLayerFromCapabilititesObj(capabilities,layer);this.addLayer_(layerObj);// (5) Add data source to ngeo collectionthis.dataSources_.push(dataSource);// (6) Create and set WMTS cache itemthis.wmtsCache_[id] &#x3D; {layerObj: layerObj,// This watcher synchronizes the data source visible property to// the OL layer object visible propertyunregister: this.rootScope_.$watch(() &#x3D;&gt; dataSource.visible,this.handleWMTSDataSourceVisibleChange_.bind(this, layerObj))};}/*** @param {!File} file File.* @param {function(boolean):*?} opt_callback Callback called with true if the file is loaded and added.*     Otherwise with false.* @export*/createAndAddDataSourceFromFile(file, opt_callback) {this.getFileDataSource_(file).then((dataSource) &#x3D;&gt; {let success &#x3D; true;const fileGroup &#x3D; this.fileGroup_;// Look if the extent is valid (and so at least one geometry)if (isEmpty(dataSource.extent)) {success &#x3D; false;} else {// (1) No need to do anything if the file has already been added...if (fileGroup.dataSources.includes(dataSource)) {return;}// (2) Okay, we need to add this data source. First, add its layer  to the map.this.addLayer_(dataSource.layer);// (3) Add it to the file groupfileGroup.addDataSource(dataSource);// (4) Recenter the map view onto its extent if there is at least one geometry (and so a valid extent)this.map_.getView().fit(dataSource.extent);// (5) Finally, add it to the ngeo collectionthis.dataSources_.push(dataSource);}// Call the callback.if (opt_callback) {opt_callback(success);}},(rejections) &#x3D;&gt; {console.error(&#x60;Failed to load file: ${file.name}&#x60;);if (opt_callback) {opt_callback(false);}});}/*** Get file data source from cache, else create, store and return a new one.* @param {!File} file File.* @return {!angular.IPromise} Promise* @private*/getFileDataSource_(file) {const defer &#x3D; this.q_.defer();if (this.files_[file.name]) {defer.resolve(this.files_[file.name]);} else {const ngeoFile &#x3D; this.ngeoFile_;ngeoFile.read(file).then((content) &#x3D;&gt; {let features;const readOptions &#x3D; {featureProjection: this.map_.getView().getProjection()};if (ngeoFile.isKml(content)) {features &#x3D; new olFormatKML({extractStyles: false}).readFeatures(content, readOptions);} else if (ngeoFile.isGpx(content)) {features &#x3D; new olFormatGPX().readFeatures(content, readOptions);}if (features) {const id &#x3D; exports.getId(file);const dataSource &#x3D; new ngeoDatasourceFile({features: new olCollection(features),id: id,name: file.name,visible: true});// Keep a reference if both cachesthis.files_[file.name] &#x3D; dataSource;this.extDataSources_[id] &#x3D; dataSource;defer.resolve(dataSource);} else {defer.reject();}});}return defer.promise;}/*** @param {!ol.layer.Tile} layer WMTS layer* @param {boolean|undefined} value Current visible property of the DS* @param {boolean|undefined} oldValue Old visible property of the DS* @private*/handleWMTSDataSourceVisibleChange_(layer, value, oldValue) {if (value !&#x3D;&#x3D; undefined &amp;&amp; value !&#x3D;&#x3D; oldValue) {layer.setVisible(value);}}/*** Called when a data source is removed from the collection of ngeo data* sources. If it&#x27;s an external data source, remove it from its WMS Group** @param {ol.Collection.Event} evt Collection event.* @private*/handleDataSourcesRemove_(evt) {const dataSource &#x3D; evt.element;if (this.extDataSources_[dataSource.id] &#x3D;&#x3D;&#x3D; dataSource) {if (dataSource instanceof ngeoDatasourceFile) {this.removeFileDataSource_(dataSource);} else if (dataSource instanceof ngeoDatasourceOGC) {this.removeOGCDataSource_(dataSource);}}}/*** Remove a data source from its group. Remove its layer from the map as well.** Note: it is expected that the data source has already been removed* from the ngeo collection.** @param {!ngeo.datasource.File} dataSource External File data source.* @private*/removeFileDataSource_(dataSource) {this.removeLayer_(dataSource.layer);this.fileGroup_.removeDataSource(dataSource);}/*** Remove the data source from its group. If the group no longer has* any data source in it, it is removed then destroyed and its layer is* removed from the map.** Note: it is expected that the data source has already been removed* from the ngeo collection.** @param {!ngeo.datasource.OGC} dataSource External OGC data source.* @private*/removeOGCDataSource_(dataSource) {if (dataSource.ogcType &#x3D;&#x3D;&#x3D; ngeoDatasourceOGC.Type.WMS) {// WMS data sourceconst url &#x3D; dataSource.wmsUrl;googAsserts.assert(url);const wmsGroup &#x3D; this.getWMSGroup(url);if (wmsGroup &amp;&amp; wmsGroup.dataSources.includes(dataSource)) {// Remove from groupwmsGroup.removeDataSource(dataSource);// In case we removed the last data source from the group, then remove// and destroy the group, and remove the layer from the map as well.if (!wmsGroup.dataSources.length) {this.removeLayer_(wmsGroup.layer);wmsGroup.destroy();this.removeWMSGroup_(wmsGroup);}}} else if (dataSource.ogcType &#x3D;&#x3D;&#x3D; ngeoDatasourceOGC.Type.WMTS) {// WMTS data sourceconst url &#x3D; dataSource.wmtsUrl;googAsserts.assert(url);const wmtsGroup &#x3D; this.getWMTSGroup(url);if (wmtsGroup &amp;&amp; wmtsGroup.dataSources.includes(dataSource)) {// Remove from groupwmtsGroup.removeDataSource(dataSource);// Remove the cache item, in addition to removing the layer from the// map and unregister the watcherconst id &#x3D; dataSource.id;this.removeLayer_(this.wmtsCache_[id].layerObj);this.wmtsCache_[id].unregister();delete this.wmtsCache_[id];// In case we removed the last data source from the group, then remove// and destroy the groug.if (!wmtsGroup.dataSources.length) {wmtsGroup.destroy();this.removeWMTSGroup_(wmtsGroup);}}}}}</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/camptocamp/ngeo/blob/60bd072/contribs/gmf/src/datasource/ExternalDataSourcesManager.js#L24">contribs/gmf/src/datasource/ExternalDataSourcesManager.js:24</a></li>
+						</ul>
+					</aside>
+				</section>
+			</section>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="globals  ">
+						<a href="../globals.html"><em>Globals</em></a>
+					</li>
+					<li class="current tsd-kind-external-module">
+						<a href="_contribs_gmf_src_datasource_externaldatasourcesmanager_.html">"contribs/gmf/src/datasource/<wbr>External<wbr>Data<wbr>Sources<wbr>Manager"</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+					<li class=" tsd-kind-variable tsd-parent-kind-external-module">
+						<a href="_contribs_gmf_src_datasource_externaldatasourcesmanager_.html#exports" class="tsd-kind-icon">exports</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-module"><span class="tsd-kind-icon">Module</span></li>
+				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
+				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+				<li class="tsd-kind-enum-member"><span class="tsd-kind-icon">Enumeration member</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-enum"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-enum"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-interface"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-interface"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class"><span class="tsd-kind-icon">Accessor</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-class"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
+				<li class="tsd-kind-call-signature tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="../assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="../assets/js/search.js"><' + '/script>');</script>
+</body>
+</html>

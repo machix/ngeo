@@ -1,0 +1,265 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>&quot;contribs/gmf/src/lidarprofile/Plot&quot; | ngeo</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.js" data-base="..">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="../index.html" class="title">ngeo</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+							<input type="checkbox" id="tsd-filter-only-exported" />
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="../globals.html">Globals</a>
+				</li>
+				<li>
+					<a href="_contribs_gmf_src_lidarprofile_plot_.html">&quot;contribs/gmf/src/lidarprofile/Plot&quot;</a>
+				</li>
+			</ul>
+			<h1>External module &quot;contribs/gmf/src/lidarprofile/Plot&quot;</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<section class="tsd-panel-group tsd-index-group">
+				<h2>Index</h2>
+				<section class="tsd-panel tsd-index-panel">
+					<div class="tsd-index-content">
+						<section class="tsd-index-section ">
+							<h3>Variables</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-variable tsd-parent-kind-external-module"><a href="_contribs_gmf_src_lidarprofile_plot_.html#exports" class="tsd-kind-icon">exports</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section tsd-is-not-exported">
+							<h3>Object literals</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-object-literal tsd-parent-kind-external-module tsd-is-not-exported"><a href="_contribs_gmf_src_lidarprofile_plot_.html#d3" class="tsd-kind-icon">d3</a></li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Variables</h2>
+				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-external-module">
+					<a name="exports" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> exports</h3>
+					<div class="tsd-signature tsd-kind-icon">exports<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">exports</span><span class="tsd-signature-symbol"> =&nbsp;class {/*** Provides a service to create an SVG element with defined axis and a LIDAR* point drawing mechanism.** @struct* @param {gmf.lidarprofile.Manager} gmfLidarprofileManagerInstance gmf lidar profile manager instance*/constructor(gmfLidarprofileManagerInstance) {/*** @type {gmf.lidarprofile.Manager}* @private*/this.manager_ &#x3D; gmfLidarprofileManagerInstance;/*** d3.scaleLinear X scale.* @type {Function}*/this.scaleX;/*** d3.scaleLinear X scale.* @type {Function}*/this.updateScaleX;/*** d3.scaleLinear Y scale.* @type {Function}*/this.scaleY;/*** d3.scaleLinear Y scale.* @type {Function}*/this.updateScaleY;/*** The material used for the drawing process. Initialized in the setup* @type {string}*/this.material;/*** @type {number}* @private*/this.width_;/*** @type {number}* @private*/this.height_;/*** @type {Array.&lt;number&gt;}*/this.previousDomainX &#x3D; [];/*** @type {boolean}* @private*/this.moved_ &#x3D; false;}/*** Draw the points to the canvas element* @param {gmfx.LidarprofilePoints} points of the profile* @export*/drawPoints(points) {let i &#x3D; -1;const nPoints &#x3D; points.distance.length;let cx, cy;const ctx &#x3D; d3.select(&#x27;#gmf-lidarprofile-container .lidar-canvas&#x27;).node().getContext(&#x27;2d&#x27;);const profileServerConfig &#x3D; this.manager_.config.serverConfig;while (++i &lt; nPoints) {const distance &#x3D; points.distance[i];const altitude &#x3D; points.altitude[i];const rgb &#x3D; points.color_packed[i];const intensity &#x3D; points.intensity[i];const classification &#x3D; points.classification[i];if (profileServerConfig.classification_colors[classification] &amp;&amp;profileServerConfig.classification_colors[classification].visible) {cx &#x3D; this.updateScaleX(distance);cy &#x3D; this.updateScaleY(altitude);ctx.beginPath();ctx.moveTo(cx, cy);if (this.material &#x3D;&#x3D; &#x27;COLOR_PACKED&#x27;) {ctx.fillStyle &#x3D; &#x60;RGB(${rgb[0]}, ${rgb[1]}, ${rgb[2]})&#x60;;} else if (this.material &#x3D;&#x3D; &#x27;INTENSITY&#x27;) {ctx.fillStyle &#x3D; &#x60;RGB(${intensity}, ${intensity}, ${intensity})&#x60;;} else if (this.material &#x3D;&#x3D; &#x27;CLASSIFICATION&#x27;) {ctx.fillStyle &#x3D; &#x60;RGB(${profileServerConfig.classification_colors[classification].color})&#x60;;} else {ctx.fillStyle &#x3D; profileServerConfig.default_color;}ctx.arc(cx, cy, profileServerConfig.point_size, 0, 2 * Math.PI, false);ctx.fill();}}}/*** Setup the SVG components of the D3 chart* @param {Array.&lt;number&gt;} rangeX range of the x scale* @param {Array.&lt;number&gt;} rangeY range of the y scale* @export*/setupPlot(rangeX, rangeY) {const canvas &#x3D; d3.select(&#x27;#gmf-lidarprofile-container .lidar-canvas&#x27;);const canvasEl &#x3D; canvas.node();const ctx &#x3D; canvasEl.getContext(&#x27;2d&#x27;);ctx.clearRect(0, 0, canvasEl.getBoundingClientRect().width, canvasEl.getBoundingClientRect().height);const margin &#x3D; this.manager_.config.clientConfig.margin;const containerEl &#x3D; d3.select(&#x27;#gmf-lidarprofile-container&#x27;).node();const containerWidth &#x3D; containerEl.getBoundingClientRect().width;const containerHeight &#x3D; containerEl.getBoundingClientRect().height;this.width_ &#x3D; containerWidth - (margin.left + margin.right);this.height_ &#x3D; containerHeight - (margin.top + margin.bottom);this.material &#x3D; this.manager_.config.serverConfig.default_attribute;canvas.attr(&#x27;height&#x27;, this.height_).attr(&#x27;width&#x27;, this.width_).style(&#x27;background-color&#x27;, &#x27;black&#x27;).style(&#x27;z-index&#x27;, 0).style(&#x27;position&#x27;, &#x27;absolute&#x27;).style(&#x27;margin-left&#x27;, &#x60;${margin.left.toString()}px&#x60;).style(&#x27;margin-top&#x27;, &#x60;${margin.top.toString()}px&#x60;);const domainProfileWidth &#x3D; rangeX[1] - rangeX[0];const domainProfileHeight &#x3D; rangeY[1] - rangeY[0];const domainRatio &#x3D; domainProfileWidth / domainProfileHeight;const rangeProfileWidth &#x3D; this.width_;const rangeProfileHeight &#x3D; this.height_;const rangeRatio &#x3D; rangeProfileWidth / rangeProfileHeight;let domainScale;if (domainRatio &lt; rangeRatio) {const domainScale &#x3D; rangeRatio / domainRatio;const domainScaledWidth &#x3D; domainProfileWidth * domainScale;this.scaleX &#x3D; d3.scaleLinear();this.scaleX[&#x27;domain&#x27;]([0, domainScaledWidth]);this.scaleX[&#x27;range&#x27;]([0, this.width_]);this.scaleY &#x3D; d3.scaleLinear();this.scaleY[&#x27;domain&#x27;](rangeY);this.scaleY[&#x27;range&#x27;]([this.height_, 0]);} else {domainScale &#x3D; domainRatio / rangeRatio;const domainScaledHeight &#x3D; domainProfileHeight * domainScale;const domainHeightCentroid &#x3D; (rangeY[1] + rangeY[0]) / 2;this.scaleX &#x3D; d3.scaleLinear();this.scaleX[&#x27;domain&#x27;](rangeX);this.scaleX[&#x27;range&#x27;]([0, this.width_]);this.scaleY &#x3D; d3.scaleLinear();this.scaleY[&#x27;domain&#x27;]([domainHeightCentroid - domainScaledHeight / 2,domainHeightCentroid + domainScaledHeight / 2]);this.scaleY[&#x27;range&#x27;]([this.height_, 0]);}const zoom &#x3D; d3.zoom().scaleExtent([-10, 100]).translateExtent([[0, 0], [this.width_, this.height_]]).extent([[0, 0], [this.width_, this.height_]]).on(&#x27;zoom&#x27;, this.zoomed.bind(this));zoom.on(&#x27;end&#x27;, this.zoomEnd.bind(this));this.previousDomainX &#x3D; this.scaleX[&#x27;domain&#x27;]();this.updateScaleX &#x3D; this.scaleX;this.updateScaleY &#x3D; this.scaleY;const svg &#x3D; d3.select(&#x27;#gmf-lidarprofile-container svg.lidar-svg&#x27;);svg.call(zoom).on(&#x27;dblclick.zoom&#x27;, null);svg.selectAll(&#x27;*&#x27;).remove();svg.attr(&#x27;width&#x27;, this.width_ + margin.left).attr(&#x27;height&#x27;, this.height_ + margin.top + margin.bottom);svg.on(&#x27;mousemove&#x27;, () &#x3D;&gt; {this.pointHighlight.bind(this)();});const xAxis &#x3D; d3.axisBottom(this.scaleX);const yAxis &#x3D; d3.axisLeft(this.scaleY).tickSize(-this.width_);svg.select(&#x27;.y.axis&#x27;).selectAll(&#x27;g.tick line&#x27;).style(&#x27;stroke&#x27;, &#x27;#b7cff7&#x27;);svg.append(&#x27;g&#x27;).attr(&#x27;class&#x27;, &#x27;y axis&#x27;).call(yAxis);svg.append(&#x27;g&#x27;).attr(&#x27;class&#x27;, &#x27;x axis&#x27;).call(xAxis);svg.select(&#x27;.y.axis&#x27;).attr(&#x27;transform&#x27;, &#x60;translate(${margin.left}, ${margin.top})&#x60;);svg.select(&#x27;.x.axis&#x27;).attr(&#x27;transform&#x27;, &#x60;translate(${margin.left}, ${this.height_ + margin.top})&#x60;);svg.select(&#x27;.y.axis&#x27;).selectAll(&#x27;g.tick line&#x27;).style(&#x27;opacity&#x27;, &#x27;0.5&#x27;).style(&#x27;stroke&#x27;, &#x27;#b7cff7&#x27;);}/*** Update the plot data at the end of the zoom process* @export*/zoomEnd() {if (d3Event.sourceEvent &amp;&amp; this.moved_ &#x3D;&#x3D;&#x3D; false) {return;}this.moved_ &#x3D; false;const ctx &#x3D; d3.select(&#x27;#gmf-lidarprofile-container .lidar-canvas&#x27;).node().getContext(&#x27;2d&#x27;);ctx.clearRect(0, 0, this.width_, this.height_);this.manager_.updateData();}/*** Update the plot axis during the zoom process* @export*/zoomed() {if (d3Event.sourceEvent &amp;&amp; d3Event.sourceEvent.type &#x3D;&#x3D;&#x3D; &#x27;mousemove&#x27;) {this.moved_ &#x3D; true;if (d3Event.sourceEvent.movementX &#x3D;&#x3D; 0 &amp;&amp; d3Event.sourceEvent.movementY &#x3D;&#x3D; 0) {return;}}this.manager_.measure.clearMeasure();const tr &#x3D; d3Event.transform;const svg &#x3D; d3.select(&#x27;#gmf-lidarprofile-container svg.lidar-svg&#x27;);const xAxis &#x3D; d3.axisBottom(this.scaleX);const yAxis &#x3D; d3.axisLeft(this.scaleY).tickSize(-this.width_);const new_scaleX &#x3D; tr.rescaleX(this.scaleX);const new_scaleY &#x3D; tr.rescaleY(this.scaleY);svg.select(&#x27;.x.axis&#x27;).call(xAxis.scale(new_scaleX));svg.select(&#x27;.y.axis&#x27;).call(yAxis.scale(new_scaleY));const ctx &#x3D; d3.select(&#x27;#gmf-lidarprofile-container .lidar-canvas&#x27;).node().getContext(&#x27;2d&#x27;);ctx.clearRect(0, 0, this.width_, this.height_);svg.select(&#x27;.y.axis&#x27;).selectAll(&#x27;g.tick line&#x27;).style(&#x27;opacity&#x27;, &#x27;0.5&#x27;).style(&#x27;stroke&#x27;, &#x27;#b7cff7&#x27;);this.updateScaleX &#x3D; new_scaleX;this.updateScaleY &#x3D; new_scaleY;}/*** Update the Openlayers overlay that displays point position and attributes values* @export*/pointHighlight() {const svg &#x3D; d3.select(&#x27;#gmf-lidarprofile-container svg.lidar-svg&#x27;);const lidarInfo &#x3D; d3.select(&#x27;#gmf-lidarprofile-container .lidar-info&#x27;);const pointSize &#x3D; this.manager_.config.serverConfig.point_size;const margin &#x3D; this.manager_.config.clientConfig.margin;const tolerance &#x3D; this.manager_.config.clientConfig.tolerance || 0;const canvasCoordinates &#x3D; d3.mouse(d3.select(&#x27;#gmf-lidarprofile-container .lidar-canvas&#x27;).node());const classification_colors &#x3D; this.manager_.config.serverConfig.classification_colors;let cx, cy;const p &#x3D; this.manager_.utils.getClosestPoint(this.manager_.profilePoints,canvasCoordinates[0], canvasCoordinates[1], tolerance, this.updateScaleX, this.updateScaleY, classification_colors);if (p !&#x3D; undefined) {cx &#x3D; this.updateScaleX(p.distance) + margin.left;cy &#x3D; this.updateScaleY(p.altitude) + margin.top;svg.selectAll(&#x27;#highlightCircle&#x27;).remove();svg.append(&#x27;circle&#x27;).attr(&#x27;id&#x27;, &#x27;highlightCircle&#x27;).attr(&#x27;cx&#x27;, cx).attr(&#x27;cy&#x27;, cy).attr(&#x27;r&#x27;, pointSize + 1).style(&#x27;fill&#x27;, &#x27;orange&#x27;);const pClassification &#x3D; p.classification || -1;const pointClassification &#x3D; classification_colors[pClassification] || {};const html &#x3D; this.getInfoHTML(p, pointClassification, 1);lidarInfo.html(html);this.manager_.cartoHighlight.setElement(null);const el &#x3D; document.createElement(&#x27;div&#x27;);el.className +&#x3D; &#x27;tooltip gmf-tooltip-measure&#x27;;el.innerHTML &#x3D; html;this.manager_.cartoHighlight.setElement(el);this.manager_.cartoHighlight.setPosition([p.coords[0], p.coords[1]]);this.manager_.lidarPointHighlight.getSource().clear();const lidarPointGeom &#x3D; new olGeomPoint([p.coords[0], p.coords[1]]);const lidarPointFeature &#x3D; new olFeature(lidarPointGeom);if (typeof (pointClassification.color) !&#x3D;&#x3D; undefined) {lidarPointFeature.setStyle(new olStyleStyle({image: new olStyleCircle({fill: new olStyleFill({color: &#x60;rgba(${pointClassification.color}, 1)&#x60;}),radius: 3})}));}this.manager_.lidarPointHighlight.getSource().addFeature(lidarPointFeature);} else {this.manager_.lidarPointHighlight.getSource().clear();svg.select(&#x27;#highlightCircle&#x27;).remove();lidarInfo.html(&#x27;&#x27;);this.manager_.cartoHighlight.setPosition(undefined);}}/*** @param {gmfx.LidarPoint} point the concerned point.* @param {lidarprofileServer.ConfigClassification} classification_color the classification*     object concerning this point.* @param {number} distDecimal the number of decimal to keep.* @return {string} the text for the html info.* @export*/getInfoHTML(point, classification_color, distDecimal) {const gettextCatalog &#x3D; this.manager_.gettextCatalog;const html &#x3D; [];const number &#x3D; this.manager_.$filter(&#x27;number&#x27;);const distance &#x3D; point.distance;const altitude &#x3D; point.altitude;const classification &#x3D; gettextCatalog.getString(classification_color.name);const intensity &#x3D; point.intensity;if (distance !&#x3D;&#x3D; undefined) {const distanceTxt &#x3D; gettextCatalog.getString(&#x27;Distance: &#x27;);html.push(&#x60;${distanceTxt + number(distance, distDecimal)}&#x60;);}if (altitude !&#x3D;&#x3D; undefined) {const altitudeTxt &#x3D; gettextCatalog.getString(&#x27;Altitude: &#x27;);html.push(&#x60;${altitudeTxt + number(altitude, distDecimal)}&#x60;);}if (classification.length &gt; 0) {const classificationTxt &#x3D; gettextCatalog.getString(&#x27;Classification: &#x27;);html.push(&#x60;${classificationTxt + classification}&#x60;);}if (intensity !&#x3D;&#x3D; undefined) {const intensityTxt &#x3D; gettextCatalog.getString(&#x27;Intensity: &#x27;);html.push(&#x60;${intensityTxt + number(intensity, 0)}&#x60;);}return html.join(&#x27;&lt;/br&gt;&#x27;);}/*** Change the profile style according to the material color* @param {string} material value as defined in Pytree attribute configuration* @export*/changeStyle(material) {this.material &#x3D; material;const canvasEl &#x3D; d3.select(&#x27;#gmf-lidarprofile-container .lidar-canvas&#x27;).node();const ctx &#x3D; canvasEl.getContext(&#x27;2d&#x27;);ctx.clearRect(0, 0, canvasEl.width, canvasEl.height);this.drawPoints(this.manager_.profilePoints);}/*** Show/Hide classes in the profile* @param {lidarprofileServer.ConfigClassifications} classification value as defined in the Pytree classification_colors*     configuration* @param {string} material  value as defined in Pytree attribute configuration* @export*/setClassActive(classification, material) {this.manager_.config.serverConfig.classification_colors &#x3D; classification;this.changeStyle(material);}}</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/camptocamp/ngeo/blob/60bd072/contribs/gmf/src/lidarprofile/Plot.js#L23">contribs/gmf/src/lidarprofile/Plot.js:23</a></li>
+						</ul>
+					</aside>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group tsd-is-not-exported">
+				<h2>Object literals</h2>
+				<section class="tsd-panel tsd-member tsd-kind-object-literal tsd-parent-kind-external-module tsd-is-not-exported">
+					<a name="d3" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> d3</h3>
+					<div class="tsd-signature tsd-kind-icon">d3<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/camptocamp/ngeo/blob/60bd072/contribs/gmf/src/lidarprofile/Plot.js#L13">contribs/gmf/src/lidarprofile/Plot.js:13</a></li>
+						</ul>
+					</aside>
+					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal tsd-is-not-exported">
+						<a name="d3.axisbottom" class="tsd-anchor"></a>
+						<h3>axis<wbr>Bottom</h3>
+						<div class="tsd-signature tsd-kind-icon">axis<wbr>Bottom<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">axisBottom</span></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/camptocamp/ngeo/blob/60bd072/contribs/gmf/src/lidarprofile/Plot.js#L14">contribs/gmf/src/lidarprofile/Plot.js:14</a></li>
+							</ul>
+						</aside>
+					</section>
+					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal tsd-is-not-exported">
+						<a name="d3.axisleft" class="tsd-anchor"></a>
+						<h3>axis<wbr>Left</h3>
+						<div class="tsd-signature tsd-kind-icon">axis<wbr>Left<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">axisLeft</span></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/camptocamp/ngeo/blob/60bd072/contribs/gmf/src/lidarprofile/Plot.js#L15">contribs/gmf/src/lidarprofile/Plot.js:15</a></li>
+							</ul>
+						</aside>
+					</section>
+					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal tsd-is-not-exported">
+						<a name="d3.mouse" class="tsd-anchor"></a>
+						<h3>mouse</h3>
+						<div class="tsd-signature tsd-kind-icon">mouse<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">mouse</span></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/camptocamp/ngeo/blob/60bd072/contribs/gmf/src/lidarprofile/Plot.js#L16">contribs/gmf/src/lidarprofile/Plot.js:16</a></li>
+							</ul>
+						</aside>
+					</section>
+					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal tsd-is-not-exported">
+						<a name="d3.scalelinear" class="tsd-anchor"></a>
+						<h3>scale<wbr>Linear</h3>
+						<div class="tsd-signature tsd-kind-icon">scale<wbr>Linear<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">scaleLinear</span></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/camptocamp/ngeo/blob/60bd072/contribs/gmf/src/lidarprofile/Plot.js#L17">contribs/gmf/src/lidarprofile/Plot.js:17</a></li>
+							</ul>
+						</aside>
+					</section>
+					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal tsd-is-not-exported">
+						<a name="d3.select" class="tsd-anchor"></a>
+						<h3>select</h3>
+						<div class="tsd-signature tsd-kind-icon">select<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">select</span></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/camptocamp/ngeo/blob/60bd072/contribs/gmf/src/lidarprofile/Plot.js#L18">contribs/gmf/src/lidarprofile/Plot.js:18</a></li>
+							</ul>
+						</aside>
+					</section>
+					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal tsd-is-not-exported">
+						<a name="d3.zoom" class="tsd-anchor"></a>
+						<h3>zoom</h3>
+						<div class="tsd-signature tsd-kind-icon">zoom<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">zoom</span></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/camptocamp/ngeo/blob/60bd072/contribs/gmf/src/lidarprofile/Plot.js#L19">contribs/gmf/src/lidarprofile/Plot.js:19</a></li>
+							</ul>
+						</aside>
+					</section>
+				</section>
+			</section>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="globals  ">
+						<a href="../globals.html"><em>Globals</em></a>
+					</li>
+					<li class="current tsd-kind-external-module">
+						<a href="_contribs_gmf_src_lidarprofile_plot_.html">"contribs/gmf/src/lidarprofile/<wbr>Plot"</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+					<li class=" tsd-kind-variable tsd-parent-kind-external-module">
+						<a href="_contribs_gmf_src_lidarprofile_plot_.html#exports" class="tsd-kind-icon">exports</a>
+					</li>
+					<li class=" tsd-kind-object-literal tsd-parent-kind-external-module tsd-is-not-exported">
+						<a href="_contribs_gmf_src_lidarprofile_plot_.html#d3" class="tsd-kind-icon">d3</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-module"><span class="tsd-kind-icon">Module</span></li>
+				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
+				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+				<li class="tsd-kind-enum-member"><span class="tsd-kind-icon">Enumeration member</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-enum"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-enum"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-interface"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-interface"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class"><span class="tsd-kind-icon">Accessor</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-class"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
+				<li class="tsd-kind-call-signature tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="../assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="../assets/js/search.js"><' + '/script>');</script>
+</body>
+</html>

@@ -1,0 +1,215 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>&quot;contribs/gmf/src/lidarprofile/Manager&quot; | ngeo</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.js" data-base="..">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="../index.html" class="title">ngeo</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+							<input type="checkbox" id="tsd-filter-only-exported" />
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="../globals.html">Globals</a>
+				</li>
+				<li>
+					<a href="_contribs_gmf_src_lidarprofile_manager_.html">&quot;contribs/gmf/src/lidarprofile/Manager&quot;</a>
+				</li>
+			</ul>
+			<h1>External module &quot;contribs/gmf/src/lidarprofile/Manager&quot;</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<section class="tsd-panel-group tsd-index-group">
+				<h2>Index</h2>
+				<section class="tsd-panel tsd-index-panel">
+					<div class="tsd-index-content">
+						<section class="tsd-index-section ">
+							<h3>Variables</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-variable tsd-parent-kind-external-module"><a href="_contribs_gmf_src_lidarprofile_manager_.html#exports" class="tsd-kind-icon">exports</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section tsd-is-not-exported">
+							<h3>Object literals</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-object-literal tsd-parent-kind-external-module tsd-is-not-exported"><a href="_contribs_gmf_src_lidarprofile_manager_.html#d3" class="tsd-kind-icon">d3</a></li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Variables</h2>
+				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-external-module">
+					<a name="exports" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> exports</h3>
+					<div class="tsd-signature tsd-kind-icon">exports<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">exports</span><span class="tsd-signature-symbol"> =&nbsp;class {/*** Provides a service to manage a D3js component to be used to draw an lidar point cloud profile chart.* Requires access to a Pytree webservice: https://github.com/sitn/pytree** @struct* @param {angular.IHttpService} $http Angular http service.* @param {angular.IFilterService} $filter Angular filter.* @param {angularGettext.Catalog} gettextCatalog Gettext catalog.* @param {ngeo.misc.Debounce} ngeoDebounce ngeo debounce service.* @ngInject* @ngdoc service* @ngname gmflidarprofileManager*/constructor($http, $filter, gettextCatalog, ngeoDebounce) {/*** @type {angular.IHttpService}*/this.$http &#x3D; $http;/*** @type {angular.IFilterService}*/this.$filter &#x3D; $filter;/*** @type {angularGettext.Catalog}*/this.gettextCatalog &#x3D; gettextCatalog;/*** @type {ngeo.misc.Debounce}* @private*/this.ngeoDebounce_ &#x3D; ngeoDebounce;/*** @type {?angular.IPromise}* @private*/this.promise &#x3D; null;/*** @type {gmf.lidarprofile.Plot}*/this.plot &#x3D; null;/*** @type {gmf.lidarprofile.Measure}*/this.measure &#x3D; null;/*** @type {gmf.lidarprofile.Config}*/this.config &#x3D; null;/*** @type {ol.Map}* @private*/this.map_ &#x3D; null;/*** The hovered point attributes in D3 profile highlighted on the 2D map* @type {ol.Overlay}*/this.cartoHighlight &#x3D; new olOverlay({offset: [0, -15],positioning: &#x27;bottom-center&#x27;});/*** The hovered point geometry (point) in D3 profile highlighted on the 2D map* @type {ol.layer.Vector}*/this.lidarPointHighlight &#x3D; new olLayerVector({source: new olSourceVector({}),style: new olStyleStyle({image: new olStyleCircle({fill: new olStyleFill({color: &#x27;rgba(0, 0, 255, 1)&#x27;}),radius: 3})})});/*** The profile footpring represented as a LineString represented* with real mapunites stroke width* @type {ol.layer.Vector}*/this.lidarBuffer &#x3D; new olLayerVector({source: new olSourceVector({})});/*** The variable where all points of the profile are stored* @type {gmfx.LidarprofilePoints}*/this.profilePoints &#x3D; this.getEmptyProfilePoints_();/*** @type {boolean}* @private*/this.isPlotSetup_ &#x3D; false;/*** @type {ol.geom.LineString}* @private*/this.line_;/*** @type {gmf.lidarprofile.Utils}*/this.utils &#x3D; new gmfLidarprofileUtils();}/*** @param {gmf.lidarprofile.Config} config Instance of gmf.lidarprofile.Config* @param {ol.Map} map The map.*/init(config, map) {this.config &#x3D; config;this.plot &#x3D; new gmfLidarprofilePlot(this);this.measure &#x3D; new gmfLidarprofileMeasure(this);this.setMap(map);}/*** Clears the profile footprint* @export*/clearBuffer() {if (this.lidarBuffer) {this.lidarBuffer.getSource().clear();}}/*** Set the line for the profile* @param {ol.geom.LineString} line that defines the profile* @export*/setLine(line) {this.line_ &#x3D; line;}/*** Set the map used by the profile* @param {ol.Map} map The map.* @export*/setMap(map) {this.map_ &#x3D; map;this.cartoHighlight.setMap(map);this.lidarPointHighlight.setMap(map);this.lidarBuffer.setMap(map);}/*** @return {gmfx.LidarprofilePoints} An empty lidarprofile points object.* @private*/getEmptyProfilePoints_() {return {distance: [],altitude: [],color_packed: [],intensity: [],classification: [],coords: []};}/*** Load profile data (lidar points) by successive Levels Of Details using asynchronous requests* @param {Array} clippedLine an array of the clipped line coordinates* @param {number} distanceOffset the left side of D3 profile domain at current zoom and pan configuration* @param {boolean} resetPlot whether to reset D3 plot or not* @param {number} minLOD minimum Level Of Detail* @export*/getProfileByLOD(clippedLine, distanceOffset, resetPlot, minLOD) {const gettextCatalog &#x3D; this.gettextCatalog;this.profilePoints &#x3D; this.getEmptyProfilePoints_();if (resetPlot) {this.isPlotSetup_ &#x3D; false;}d3.select(&#x27;#gmf-lidarprofile-container .lidar-error&#x27;).style(&#x27;visibility&#x27;, &#x27;hidden&#x27;);let pytreeLinestring &#x3D; this.utils.getPytreeLinestring(this.line_);let maxLODWith;const max_levels &#x3D; this.config.serverConfig.max_levels;if (distanceOffset &#x3D;&#x3D; 0) {maxLODWith &#x3D; this.utils.getNiceLOD(this.line_.getLength(), max_levels);} else {const domain &#x3D; this.plot.updateScaleX[&#x27;domain&#x27;]();pytreeLinestring &#x3D; &#x27;&#x27;;for (let i &#x3D; 0; i &lt; clippedLine.length; i++) {pytreeLinestring +&#x3D; &#x60;{${clippedLine[i][0]},${clippedLine[i][1]}},&#x60;;}pytreeLinestring &#x3D; pytreeLinestring.substr(0, pytreeLinestring.length - 1);maxLODWith &#x3D; this.utils.getNiceLOD(domain[1] - domain[0], max_levels);}let lastLOD &#x3D; false;d3.select(&#x27;#gmf-lidarprofile-container .lod-info&#x27;).html(&#x27;&#x27;);this.config.clientConfig.pointSum &#x3D; 0;let profileWidth &#x3D; 0;if (this.config.clientConfig.autoWidth) {profileWidth &#x3D; maxLODWith.width;} else {profileWidth &#x3D; this.config.serverConfig.width;}const profileWidthTxt &#x3D; gettextCatalog.getString(&#x27;Profile width: &#x27;);d3.select(&#x27;#gmf-lidarprofile-container .width-info&#x27;).html(&#x60;${profileWidthTxt} ${profileWidth}m&#x60;);for (let i &#x3D; 0; i &lt; maxLODWith.maxLOD; i++) {if (i &#x3D;&#x3D; 0) {this.queryPytree_(minLOD, this.config.serverConfig.initialLOD, i, pytreeLinestring, distanceOffset, lastLOD, profileWidth, resetPlot);i +&#x3D; this.config.serverConfig.initialLOD - 1;} else if (i &lt; maxLODWith.maxLOD - 1) {this.queryPytree_(minLOD + i, minLOD + i + 1, i, pytreeLinestring, distanceOffset, lastLOD, profileWidth, false);} else {lastLOD &#x3D; true;this.queryPytree_(minLOD + i, minLOD + i + 1, i, pytreeLinestring, distanceOffset, lastLOD, profileWidth, false);}}}/*** Request to Pytree service for a range of Level Of Detail (LOD)* @param {number} minLOD minimum Level Of Detail of the request* @param {number} maxLOD maximum Level Of Detail of the request* @param {number} iter the iteration in profile requests cycle* @param {string} coordinates linestring in cPotree format* @param {number} distanceOffset the left side of D3 profile domain at current zoom and pan configuration* @param {boolean} lastLOD the deepest level to retrieve for this profile* @param {number} width the width of the profile* @param {boolean} resetPlot whether to reset D3 plot or not, used for first LOD* @private*/queryPytree_(minLOD, maxLOD, iter, coordinates, distanceOffset, lastLOD, width, resetPlot) {const gettextCatalog &#x3D; this.gettextCatalog;const lodInfo &#x3D; d3.select(&#x27;#gmf-lidarprofile-container .lod-info&#x27;);if (this.config.serverConfig.debug) {let html &#x3D; lodInfo.html();const loadingLodTxt &#x3D; gettextCatalog.getString(&#x27;Loading LOD: &#x27;);html +&#x3D; &#x60;${loadingLodTxt} ${minLOD}-${maxLOD}...&lt;br&gt;&#x60;;lodInfo.html(html);}const pointCloudName &#x3D; this.config.serverConfig.default_point_cloud;const hurl &#x3D; &#x60;${this.config.pytreeLidarprofileJsonUrl}/profile/get?minLOD&#x3D;${minLOD}&amp;maxLOD&#x3D;${maxLOD}&amp;width&#x3D;${width}&amp;coordinates&#x3D;${coordinates}&amp;pointCloud&#x3D;${pointCloudName}&amp;attributes&#x3D;&#x60;;this.$http.get(hurl, {headers: {&#x27;Content-Type&#x27;: &#x27;text/plain; charset&#x3D;x-user-defined&#x27;},responseType: &#x27;arraybuffer&#x27;}).then((response) &#x3D;&gt; {if (this.config.serverConfig.debug) {let html &#x3D; lodInfo.html();const lodTxt &#x3D; gettextCatalog.getString(&#x27;LOD: &#x27;);const loadedTxt &#x3D; gettextCatalog.getString(&#x27;loaded&#x27;);html +&#x3D; &#x60;${lodTxt} ${minLOD}-${maxLOD} ${loadedTxt}&lt;br&gt;&#x60;;lodInfo.html(html);}this.processBuffer_(response.data, iter, distanceOffset, lastLOD, resetPlot);}, (response) &#x3D;&gt; {console.error(response);});}/*** Process the binary array return by Pytree (cPotree)* @param {ArrayBuffer} profile binary array returned by cPotree executable called by Pytree* @param {number} iter the iteration in profile requests cycle* @param {number} distanceOffset the left side of D3 profile domain at current zoom and pan configuration* @param {boolean} lastLOD the deepest level to retrieve for this profile* @param {boolean} resetPlot whether to reset D3 plot or not* @private*/processBuffer_(profile, iter, distanceOffset, lastLOD, resetPlot) {const lidarError &#x3D; d3.select(&#x27;#gmf-lidarprofile-container .lidar-error&#x27;);const typedArrayInt32 &#x3D; new Int32Array(profile, 0, 4);const headerSize &#x3D; typedArrayInt32[0];const uInt8header &#x3D; new Uint8Array(profile, 4, headerSize);let strHeaderLocal &#x3D; &#x27;&#x27;;for (let i &#x3D; 0; i &lt; uInt8header.length; i++) {strHeaderLocal +&#x3D; String.fromCharCode(uInt8header[i]);}try {JSON.parse(strHeaderLocal);} catch (e) {if (!this.isPlotSetup_) {const canvas &#x3D; d3.select(&#x27;#gmf-lidarprofile-container .lidar-canvas&#x27;);const canvasEl &#x3D; canvas.node();const ctx &#x3D; canvasEl.getContext(&#x27;2d&#x27;);ctx.clearRect(0, 0, canvasEl.getBoundingClientRect().width, canvasEl.getBoundingClientRect().height);canvas.selectAll(&#x27;*&#x27;).remove();const errorTxt &#x3D; this.getHTMLError_();lidarError.style(&#x27;visibility&#x27;, &#x27;visible&#x27;);lidarError.html(errorTxt);}return;}lidarError.style(&#x27;visibility&#x27;, &#x27;hidden&#x27;);const jHeader &#x3D; JSON.parse(strHeaderLocal);// If number of points return is higher than Pytree configuration max value,// stop sending requests.this.config.clientConfig.pointSum +&#x3D; jHeader[&#x27;points&#x27;];if (this.config.clientConfig.pointSum &gt;this.config.serverConfig.max_point_number) {console.warn(&#x27;Number of points is higher than Pytree configuration max value !&#x27;);}const attr &#x3D; jHeader[&#x27;pointAttributes&#x27;];const attributes &#x3D; [];for (let j &#x3D; 0; j &lt; attr.length; j++) {if (this.config.serverConfig.point_attributes[attr[j]] !&#x3D; undefined) {attributes.push(this.config.serverConfig.point_attributes[attr[j]]);}}const scale &#x3D; jHeader[&#x27;scale&#x27;];if (jHeader[&#x27;points&#x27;] &lt; 3) {return;}const points &#x3D; this.getEmptyProfilePoints_();const bytesPerPoint &#x3D; jHeader[&#x27;bytesPerPoint&#x27;];const buffer &#x3D; profile.slice(4 + headerSize);for (let i &#x3D; 0; i &lt; jHeader[&#x27;points&#x27;]; i++) {const byteOffset &#x3D; bytesPerPoint * i;const view &#x3D; new DataView(buffer, byteOffset, bytesPerPoint);let aoffset &#x3D; 0;for (let k &#x3D; 0; k &lt; attributes.length; k++) {if (attributes[k][&#x27;value&#x27;] &#x3D;&#x3D; &#x27;POSITION_PROJECTED_PROFILE&#x27;) {const udist &#x3D; view.getUint32(aoffset, true);const dist &#x3D; udist * scale;points.distance.push(Math.round(100 * (distanceOffset + dist)) / 100);this.profilePoints.distance.push(Math.round(100 * (distanceOffset + dist)) / 100);} else if (attributes[k][&#x27;value&#x27;] &#x3D;&#x3D; &#x27;CLASSIFICATION&#x27;) {const classif &#x3D; view.getUint8(aoffset);points.classification.push(classif);this.profilePoints.classification.push(classif);} else if (attributes[k][&#x27;value&#x27;] &#x3D;&#x3D; &#x27;INTENSITY&#x27;) {const intensity &#x3D; view.getUint8(aoffset);points.intensity.push(intensity);this.profilePoints.intensity.push(intensity);} else if (attributes[k][&#x27;value&#x27;] &#x3D;&#x3D; &#x27;COLOR_PACKED&#x27;) {const r &#x3D; view.getUint8(aoffset);const g &#x3D; view.getUint8(aoffset + 1);const b &#x3D; view.getUint8(aoffset + 2);points.color_packed.push([r, g, b]);this.profilePoints.color_packed.push([r, g, b]);} else if (attributes[k][&#x27;value&#x27;] &#x3D;&#x3D; &#x27;POSITION_CARTESIAN&#x27;) {const x &#x3D; view.getInt32(aoffset, true) * scale + jHeader[&#x27;boundingBox&#x27;][&#x27;lx&#x27;];const y &#x3D; view.getInt32(aoffset + 4, true) * scale + jHeader[&#x27;boundingBox&#x27;][&#x27;ly&#x27;];const z &#x3D; view.getInt32(aoffset + 8, true) * scale + jHeader[&#x27;boundingBox&#x27;][&#x27;lz&#x27;];points.coords.push([x, y]);points.altitude.push(z);this.profilePoints.altitude.push(z);this.profilePoints.coords.push([x, y]);}aoffset &#x3D; aoffset + attributes[k][&#x27;bytes&#x27;];}}const rangeX &#x3D; [0, this.line_.getLength()];const rangeY &#x3D; [this.utils.arrayMin(points.altitude), this.utils.arrayMax(points.altitude)];if (iter &#x3D;&#x3D; 0 &amp;&amp; resetPlot || !this.isPlotSetup_) {this.plot.setupPlot(rangeX, rangeY);this.isPlotSetup_ &#x3D; true;}this.plot.drawPoints(points);}/*** @return {string} The html for errors.* @private*/getHTMLError_() {const gettextCatalog &#x3D; this.gettextCatalog;const errorInfoTxt &#x3D; gettextCatalog.getString(&#x27;Lidar profile service error&#x27;);const errorOfflineTxt &#x3D; gettextCatalog.getString(&#x27;It might be offline&#x27;);const errorOutsideTxt &#x3D; gettextCatalog.getString(&#x27;Or did you attempt to draw a profile outside data extent?&#x27;);const errorNoPointError &#x3D; gettextCatalog.getString(&#x27;Or did you attempt to draw such a small profile that no point was returned?&#x27;);return &#x60;&lt;div class&#x3D;&quot;lidarprofile-error&quot;&gt;&lt;p class&#x3D;&quot;bold&quot;&gt;${errorInfoTxt}&lt;/p&gt;&lt;p&gt;${errorOfflineTxt}&lt;/p&gt;&lt;p&gt;${errorOutsideTxt}&lt;/p&gt;&lt;p&gt;${errorNoPointError}&lt;/p&gt;&#x60;;}/*** Update the profile data according to D3 chart zoom and pan level* The update will wait on a 200ms pause on the actions of users before to do the update.* @export*/updateData() {this.ngeoDebounce_(this.updateData_.bind(this), 200, true)();}/*** @private*/updateData_() {const domainX &#x3D; this.plot.updateScaleX[&#x27;domain&#x27;]();let map_resolution &#x3D; this.map_ ? this.map_.getView().getResolution() : 0;map_resolution &#x3D; map_resolution || 0;const clip &#x3D; this.utils.clipLineByMeasure(this.config, map_resolution,this.line_, domainX[0], domainX[1]);this.lidarBuffer.getSource().clear();this.lidarBuffer.getSource().addFeature(clip.bufferGeom);this.lidarBuffer.setStyle(clip.bufferStyle);const span &#x3D; domainX[1] - domainX[0];const maxLODWidth &#x3D; this.utils.getNiceLOD(span, this.config.serverConfig.max_levels);const xTolerance &#x3D; 0.2;if (Math.abs(domainX[0] - this.plot.previousDomainX[0]) &lt; xTolerance &amp;&amp;Math.abs(domainX[1] - this.plot.previousDomainX[1]) &lt; xTolerance) {this.plot.drawPoints(this.profilePoints);} else {if (maxLODWidth.maxLOD &lt;&#x3D; this.config.serverConfig.initialLOD) {this.plot.drawPoints(this.profilePoints);} else {this.getProfileByLOD(clip.clippedLine, clip.distanceOffset, false, 0);}}this.plot.previousDomainX &#x3D; domainX;}}</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/camptocamp/ngeo/blob/5955c23/contribs/gmf/src/lidarprofile/Manager.js#L20">contribs/gmf/src/lidarprofile/Manager.js:20</a></li>
+						</ul>
+					</aside>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group tsd-is-not-exported">
+				<h2>Object literals</h2>
+				<section class="tsd-panel tsd-member tsd-kind-object-literal tsd-parent-kind-external-module tsd-is-not-exported">
+					<a name="d3" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> d3</h3>
+					<div class="tsd-signature tsd-kind-icon">d3<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/camptocamp/ngeo/blob/5955c23/contribs/gmf/src/lidarprofile/Manager.js#L15">contribs/gmf/src/lidarprofile/Manager.js:15</a></li>
+						</ul>
+					</aside>
+					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal tsd-is-not-exported">
+						<a name="d3.select" class="tsd-anchor"></a>
+						<h3>select</h3>
+						<div class="tsd-signature tsd-kind-icon">select<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">select</span></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/camptocamp/ngeo/blob/5955c23/contribs/gmf/src/lidarprofile/Manager.js#L16">contribs/gmf/src/lidarprofile/Manager.js:16</a></li>
+							</ul>
+						</aside>
+					</section>
+				</section>
+			</section>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="globals  ">
+						<a href="../globals.html"><em>Globals</em></a>
+					</li>
+					<li class="current tsd-kind-external-module">
+						<a href="_contribs_gmf_src_lidarprofile_manager_.html">"contribs/gmf/src/lidarprofile/<wbr>Manager"</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+					<li class=" tsd-kind-variable tsd-parent-kind-external-module">
+						<a href="_contribs_gmf_src_lidarprofile_manager_.html#exports" class="tsd-kind-icon">exports</a>
+					</li>
+					<li class=" tsd-kind-object-literal tsd-parent-kind-external-module tsd-is-not-exported">
+						<a href="_contribs_gmf_src_lidarprofile_manager_.html#d3" class="tsd-kind-icon">d3</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-module"><span class="tsd-kind-icon">Module</span></li>
+				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
+				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+				<li class="tsd-kind-enum-member"><span class="tsd-kind-icon">Enumeration member</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-enum"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-enum"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-interface"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-interface"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class"><span class="tsd-kind-icon">Accessor</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-class"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
+				<li class="tsd-kind-call-signature tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="../assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="../assets/js/search.js"><' + '/script>');</script>
+</body>
+</html>

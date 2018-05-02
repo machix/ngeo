@@ -1,0 +1,190 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>&quot;src/datasource/OGC&quot; | ngeo</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.js" data-base="..">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="../index.html" class="title">ngeo</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+							<input type="checkbox" id="tsd-filter-only-exported" />
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="../globals.html">Globals</a>
+				</li>
+				<li>
+					<a href="_src_datasource_ogc_.html">&quot;src/datasource/OGC&quot;</a>
+				</li>
+			</ul>
+			<h1>External module &quot;src/datasource/OGC&quot;</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<section class="tsd-panel-group tsd-index-group">
+				<h2>Index</h2>
+				<section class="tsd-panel tsd-index-panel">
+					<div class="tsd-index-content">
+						<section class="tsd-index-section ">
+							<h3>Variables</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-variable tsd-parent-kind-external-module"><a href="_src_datasource_ogc_.html#exports" class="tsd-kind-icon">exports</a></li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Variables</h2>
+				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-external-module">
+					<a name="exports" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> exports</h3>
+					<div class="tsd-signature tsd-kind-icon">exports<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">exports</span><span class="tsd-signature-symbol"> =&nbsp;class extends ngeoDatasourceDataSource {/*** A data source contains information of a single source of data that can* show or fetch the data using an OGC server. Several OGC service types are* supported by this data source: WMS, WMTS and even WFS.** You can use the information stored within an OGC data source to do all* sorts of things:* - issue WMS/WFS queries* - apply filter rules on it* - create &#x60;ol.layer.Layer&#x60; objects using the WMS, WMTS or event WFS*   information** @struct* @param {ngeox.datasource.OGCOptions} options Options.*/constructor(options) {super(options);// &#x3D;&#x3D;&#x3D; DYNAMIC properties (i.e. that can change / be watched) &#x3D;&#x3D;&#x3D;/*** The dimensions configuration for the data source.* @type {?ngeox.Dimensions}* @private*/this.dimensionsConfig_ &#x3D; options.dimensionsConfig || null;/*** The dimensions applied by filters configuration for the data source.* @type {?ngeox.DimensionsFiltersConfig}* @private*/this.dimensionsFiltersConfig_ &#x3D; options.dimensionsFiltersConfig || null;/*** The filter condition to apply to the filter rules (if any).* @type {string}* @private*/this.filterCondition_ &#x3D; options.filterCondition || ngeoFilterCondition.AND;/*** A list of filter rules to apply to this data source using the filter* condition.* @type {?Array.&lt;!ngeo.rule.Rule&gt;}* @private*/this.filterRules_ &#x3D; options.filterRules || null;/*** Whether the data source is filtrable or not. When &#x60;null&#x60;, that means* that we do not know if the data source if filtrable or not, yet. In* that case, the value of the property needs to be determined from an* external way.* @type {?boolean}* @private*/this.filtrable_ &#x3D; options.filtrable || null;// &#x3D;&#x3D;&#x3D; STATIC properties (i.e. that never change) &#x3D;&#x3D;&#x3D;/*** Whether the geometry from this data source can be copied to other data* sources or not. Defaults to &#x60;false&#x60;.* @type {boolean}* @private*/this.copyable_ &#x3D; options.copyable &#x3D;&#x3D;&#x3D; true;/*** A reference to the dimensions object.* @type {?ngeox.Dimensions}* @private*/this.dimensions_ &#x3D; options.dimensions || null;/*** The name of the geometry attribute.* @type {string}* @private*/this.geometryName_ &#x3D; options.geometryName || exports.DEFAULT_GEOMETRY_NAME_;/*** The type of images to fetch by queries by the (WMS) or (WMTS) .* @type {string}* @private*/this.ogcImageType_ &#x3D; options.ogcImageType || &#x27;image/png&#x27;;/*** A list of layer definitions that are used by (WMS) and (WFS) queries.* These are **not** used by the (WMTS) queries (the wmtsLayers is used* by WMTS queries).* @type {?Array.&lt;!ngeox.datasource.OGCLayer&gt;}* @private*/this.ogcLayers_ &#x3D; options.ogcLayers || null;/*** The type of OGC server making the requests.* @type {string}* @private*/this.ogcServerType_ &#x3D; options.ogcServerType || exports.ServerType.MAPSERVER;/*** The type data source. Can be: &#x27;WMS&#x27; or &#x27;WMTS&#x27;.* @type {string}* @private*/this.ogcType_ &#x3D; options.ogcType || exports.Type.WMS;/*** Whether the geometry from this data source can be used to snap the* geometry of features from other data sources that are being edited.* Defaults to &#x60;false&#x60;.* @type {boolean}* @private*/this.snappable_ &#x3D; options.snappable &#x3D;&#x3D;&#x3D; true;/*** Determines whether external features can be snapped to the edges of* features from this data source or not. Defaults to &#x60;true&#x60;. Requires* &#x60;snappable&#x60; to be set.* @type {boolean}* @private*/this.snappingToEdges_ &#x3D; options.snappingToEdges !&#x3D;&#x3D; false;/*** Determines whether external features can be snapped to the vertice of* features from this data source or not. Defaults to &#x60;true&#x60;. Requires* &#x60;snappable&#x60; to be set.* @type {boolean}* @private*/this.snappingToVertice_ &#x3D; options.snappingToVertice !&#x3D;&#x3D; false;/*** The tolerance in pixels the snapping should occur. Defaults to &#x60;10&#x60;.* @type {number}* @private*/this.snappingTolerance_ &#x3D; options.snappingTolerance !&#x3D;&#x3D; undefined ? options.snappingTolerance : 10;/*** The name of the time attribute.* @type {string|undefined}* @private*/this.timeAttributeName_ &#x3D; options.timeAttributeName;/*** @type {number|undefined}* @private*/this.timeLowerValue_ &#x3D; options.timeLowerValue;/*** @type {?ngeox.TimeProperty}* @private*/this.timeProperty_ &#x3D; options.timeProperty !&#x3D;&#x3D; undefined ? options.timeProperty : null;/*** @type {number|undefined}* @private*/this.timeUpperValue_ &#x3D; options.timeUpperValue;/*** The feature namespace to use with WFS requests.* @type {string}* @private*/this.wfsFeatureNS_ &#x3D; options.wfsFeatureNS;/*** The feature prefix to use with WFS requests.* @type {string}* @private*/this.wfsFeaturePrefix_ &#x3D; options.wfsFeaturePrefix || exports.WFSFeaturePrefix.FEATURE;/*** The OutputFormat to use with WFS requests.* @type {string}* @private*/this.wfsOutputFormat_ &#x3D; options.wfsOutputFormat || exports.WFSOutputFormat.GML3;/*** The url to use for (WFS) requests.* @type {string|undefined}* @private*/this.wfsUrl_ &#x3D; options.wfsUrl;/*** The InfoFormat to use with WMS requests.* @type {string}* @private*/this.wmsInfoFormat_ &#x3D; options.wmsInfoFormat || exports.WMSInfoFormat.GML;/*** Whether the (WMS) images returned by this data source* should be single tiles or not.* @type {boolean}* @private*/this.wmsIsSingleTile_ &#x3D; options.wmsIsSingleTile &#x3D;&#x3D;&#x3D; true;/*** The url to use for (WMS) requests.* @type {string|undefined}* @private*/this.wmsUrl_ &#x3D; options.wmsUrl;/*** The layer name to use for the (WMTS) requests.* @type {string|undefined}* @private*/this.wmtsLayer_ &#x3D; options.wmtsLayer;/*** The url to use for (WMTS) requests.* @type {string|undefined}* @private*/this.wmtsUrl_ &#x3D; options.wmtsUrl;// &#x3D;&#x3D;&#x3D; Calculated properties &#x3D;&#x3D;&#x3D;// Get queryable ogc layer namesconst layers &#x3D; [];if (this.queryable &amp;&amp; this.ogcLayers) {for (const ogcLayer of this.ogcLayers) {if (ogcLayer.queryable) {layers.push(ogcLayer.name);}}}let wfsFormat &#x3D; null;if (this.supportsWFS &amp;&amp; layers.length) {let format &#x3D; undefined;if (this.wfsOutputFormat_ &#x3D;&#x3D;&#x3D; exports.WFSOutputFormat.GML3) {format &#x3D; new olFormatGML3();} else if (this.wfsOutputFormat_ &#x3D;&#x3D;&#x3D; exports.WFSOutputFormat.GML2) {format &#x3D; new olFormatGML2();}googAsserts.assert(format);wfsFormat &#x3D; new olFormatWFS({featureNS: this.wfsFeatureNS,featureType: layers,gmlFormat: format});}/*** @type {?ol.format.WFS}* @private*/this.wfsFormat_ &#x3D; wfsFormat;let wmsFormat &#x3D; null;if (this.supportsWMS &amp;&amp; layers.length) {if (this.wmsInfoFormat &#x3D;&#x3D;&#x3D; exports.WMSInfoFormat.GML) {wmsFormat &#x3D; new olFormatWMSGetFeatureInfo({layers});}// Todo, support more formats for WMS}/*** @type {?ol.format.WMSGetFeatureInfo}* @private*/this.wmsFormat_ &#x3D; wmsFormat;}// &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;// &#x3D;&#x3D;&#x3D; Dynamic property getters/setters &#x3D;&#x3D;&#x3D;// &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;/*** @return {?ngeox.Dimensions} Current dimensions to use for this data source* @export*/get dimensions() {return this.dimensions_;}/*** @return {?ngeox.Dimensions} Dimensions configuration for this data source* @export*/get dimensionsConfig() {return this.dimensionsConfig_;}/*** @param {?ngeox.Dimensions} dimensionsConfig Dimensions configuration* @export*/set dimensionsConfig(dimensionsConfig) {this.dimensionsConfig_ &#x3D; dimensionsConfig;}/*** @return {?ngeox.DimensionsFiltersConfig} dimensionsFiltersConfig Dimensions* filters configuration for this data source* @export*/get dimensionsFiltersConfig() {return this.dimensionsFiltersConfig_;}/*** @param {?ngeox.DimensionsFiltersConfig}dimensionsFiltersConfig Dimensions* filters configuration for this data source* @export*/set dimensionsFiltersConfig(dimensionsFiltersConfig) {this.dimensionsFiltersConfig_ &#x3D; dimensionsFiltersConfig;}/*** @return {string} Filter condition* @export*/get filterCondition() {return this.filterCondition_;}/*** @param {string} filterCondition Filter condition* @export*/set filterCondition(filterCondition) {this.filterCondition_ &#x3D; filterCondition;}/*** @return {?Array.&lt;!ngeo.rule.Rule&gt;} Filter rules* @export*/get filterRules() {return this.filterRules_;}/*** @param {?Array.&lt;!ngeo.rule.Rule&gt;} filterRules Filter rules* @export*/set filterRules(filterRules) {this.filterRules_ &#x3D; filterRules;}/*** @return {number|undefined} Time lower value* @export*/get timeLowerValue() {return this.timeLowerValue_;}/*** @param {number|undefined} time Time lower value* @export*/set timeLowerValue(time) {this.timeLowerValue_ &#x3D; time;}/*** @return {?ngeox.TimeRange} Time range value* @export*/get timeRangeValue() {let range &#x3D; null;const lower &#x3D; this.timeLowerValue;const upper &#x3D; this.timeUpperValue;if (lower !&#x3D;&#x3D; undefined) {range &#x3D; {end: upper,start: lower};}return range;}/*** @param {?ngeox.TimeRange} range Time range value* @export*/set timeRangeValue(range) {if (range) {this.timeUpperValue &#x3D; range.end;this.timeLowerValue &#x3D; range.start;} else {this.timeUpperValue &#x3D; undefined;this.timeLowerValue &#x3D; undefined;}}/*** @return {number|undefined} Time upper value* @export*/get timeUpperValue() {return this.timeUpperValue_;}/*** @param {number|undefined} time Time upper value* @export*/set timeUpperValue(time) {this.timeUpperValue_ &#x3D; time;}// &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;// &#x3D;&#x3D;&#x3D; Static property getters/setters &#x3D;&#x3D;&#x3D;// &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;/*** @inheritDoc*/getAttributes() {return super.attributes;}/*** @inheritDoc*/setAttributes(attributes) {super.setAttributes(attributes);this.updateGeometryNameFromAttributes_();}/*** @return {boolean} Copyable* @export*/get copyable() {return this.copyable_;}/*** @return {?boolean} Filtrable.* @export*/get filtrable() {return this.filtrable_;}/*** @param {?boolean} filtrable Filtrable.* @export*/set filtrable(filtrable) {this.filtrable_ &#x3D; filtrable;}/*** @return {string} Geometry name* @export*/get geometryName() {return this.geometryName_;}/*** @return {string} OGC image type* @export*/get ogcImageType() {return this.ogcImageType_;}/*** @return {?Array.&lt;!ngeox.datasource.OGCLayer&gt;} OGC layers* @export*/get ogcLayers() {return this.ogcLayers_;}/*** @return {string} OGC server type* @export*/get ogcServerType() {return this.ogcServerType_;}/*** @return {string} OGC type* @export*/get ogcType() {return this.ogcType_;}/*** @return {boolean} Snappable* @export*/get snappable() {return this.snappable_;}/*** @return {boolean} Snapping to edges* @export*/get snappingToEdges() {return this.snappingToEdges_;}/*** @return {boolean} Snapping to vertices* @export*/get snappingToVertice() {return this.snappingToVertice_;}/*** @return {number} Snapping tolerance* @export*/get snappingTolerance() {return this.snappingTolerance_;}/*** @return {string|undefined} Time attribute name* @export*/get timeAttributeName() {return this.timeAttributeName_;}/*** @return {?ngeox.TimeProperty} Time property* @export*/get timeProperty() {return this.timeProperty_;}/*** @return {string} WFS feature namespace* @export*/get wfsFeatureNS() {return this.wfsFeatureNS_;}/*** @return {string} WFS feature prefix* @export*/get wfsFeaturePrefix() {return this.wfsFeaturePrefix_;}/*** @return {string} WFS output format* @export*/get wfsOutputFormat() {return this.wfsOutputFormat_;}/*** @export* @return {string|undefined} WFS url*/get wfsUrl() {return this.wfsUrl_;}/*** @return {string} WMS info format* @export*/get wmsInfoFormat() {return this.wmsInfoFormat_;}/*** @return {boolean} WMS is single tile* @export*/get wmsIsSingleTile() {return this.wmsIsSingleTile_;}/*** @return {string|undefined} WMS url* @export* @override*/get wmsUrl() {return this.wmsUrl_;}/*** @return {string|undefined} WMTS layer* @export*/get wmtsLayer() {return this.wmtsLayer_;}/*** @return {string|undefined} WMTS url* @export* @override*/get wmtsUrl() {return this.wmtsUrl_;}// &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;// &#x3D;&#x3D;&#x3D; Calculated property getters &#x3D;&#x3D;&#x3D;// &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;/*** @return {!ngeox.DimensionsActive} Active dimensions* @export*/get activeDimensions() {const active &#x3D; {};const dimensions &#x3D; this.dimensions_ || {};const config &#x3D; this.dimensionsConfig || {};for (const key in config) {if (config[key] &#x3D;&#x3D;&#x3D; null) {if (dimensions[key] !&#x3D;&#x3D; undefined &amp;&amp; dimensions[key] !&#x3D;&#x3D; null) {active[key] &#x3D; dimensions[key];}} else {active[key] &#x3D; config[key];}}return active;}/*** A data source can&#x27;t be combined to other data source to issue a single* WFS request if:** - it has filter rules set* - it has time range set** @return {boolean} Whether the data source can be combined to an other*     data source to fetch features in a single WFS request.* @export* @override*/get combinableForWFS() {return this.filterRules_ &#x3D;&#x3D;&#x3D; null &amp;&amp;this.timeRangeValue &#x3D;&#x3D;&#x3D; null;}/*** A data source can&#x27;t be combined to other data source to issue a single* WMS request if:** - it has filter rules set* - it has time range set** @return {boolean} Whether the data source can be combined to an other*     data source to fetch features in a single WMS request.* @export* @override*/get combinableForWMS() {return this.filterRules_ &#x3D;&#x3D;&#x3D; null &amp;&amp;this.timeRangeValue &#x3D;&#x3D;&#x3D; null;}/*** Whether the data source is queryable or not. For an OGC data source to be* queryable, it requires the support of WFS or WMS and at least one ogc* layer to be querable.* @export*/get queryable() {let queryable &#x3D; false;const supportsOGCQueries &#x3D; this.supportsWMS || this.supportsWFS;if (supportsOGCQueries &amp;&amp; this.ogcLayers) {for (const ogcLayer of this.ogcLayers) {if (ogcLayer.queryable &#x3D;&#x3D;&#x3D; true) {queryable &#x3D; true;break;}}}return queryable;}/*** @return {boolean} Whether the data source supports making WFS requests*     or not.* @export* @override*/get supportsWFS() {return this.wfsUrl !&#x3D;&#x3D; undefined;}/*** To be able to do advanced operations on a data source, such as editing* or filtering, a data source must be bound to 1 set of attributes.* These attributes are the ones defined by an ogcLayer.  This means that* to be considered to support having attributes defined, you either need* to define them directly when creating the data source, or if you let* the querent service get them for you using a WFS DescribeFeatureType* request, the data source must have only 1 ogcLayer set, which must* be queryable.* @return {boolean} Supports attributes.* @export*/get supportsAttributes() {return this.attributes !&#x3D;&#x3D; null || (this.supportsWFS &amp;&amp;this.ogcLayers !&#x3D;&#x3D; null &amp;&amp;this.ogcLayers.length &#x3D;&#x3D;&#x3D; 1 &amp;&amp;this.ogcLayers[0].queryable &#x3D;&#x3D;&#x3D; true);}/*** @return {boolean} Whether the data source supports making WMS requests*     or not.* @export* @override*/get supportsWMS() {return this.wmsUrl !&#x3D;&#x3D; undefined;}/*** @return {boolean} Whether the data source supports making WTMS requests*     or not.* @export*/get supportsWMTS() {return this.wmtsUrl !&#x3D;&#x3D; undefined;}/*** @return {?ol.format.WFS} WFS format.* @export*/get wfsFormat() {return this.wfsFormat_;}/*** @return {?ol.format.WMSGetFeatureInfo} WMS format.* @export*/get wmsFormat() {return this.wmsFormat_;}// &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;// &#x3D;&#x3D;&#x3D; Other public methods &#x3D;&#x3D;&#x3D;// &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;/*** @param {ngeox.datasource.OGC} dataSource Data source.* @return {boolean} Whether this data source can be combined to the given*     other data source to fetch features in a single WFS request.* @export* @override*/combinableWithDataSourceForWFS(dataSource) {return this.combinableForWFS &amp;&amp; dataSource.combinableForWFS &amp;&amp;this.supportsWFS &amp;&amp; dataSource.supportsWFS &amp;&amp;this.queryable &amp;&amp; dataSource.queryable &amp;&amp;this.wfsUrl &#x3D;&#x3D;&#x3D; dataSource.wfsUrl &amp;&amp;this.haveTheSameActiveDimensions(dataSource);}/*** @param {ngeox.datasource.OGC} dataSource Data source.* @return {boolean} Whether this data source can be combined to the given*     other data source to fetch features in a single WMS request.* @export* @override*/combinableWithDataSourceForWMS(dataSource) {return this.combinableForWMS &amp;&amp; dataSource.combinableForWMS &amp;&amp;this.supportsWMS &amp;&amp; dataSource.supportsWMS &amp;&amp;this.queryable &amp;&amp; dataSource.queryable &amp;&amp;this.wmsUrl &#x3D;&#x3D;&#x3D; dataSource.wmsUrl &amp;&amp;this.haveTheSameActiveDimensions(dataSource);}/*** Check if there&#x27;s at least one OGC layer in range of a given resolution.* @param {number} res Resolution.* @param {boolean} queryableOnly Whether to additionally check if the*     OGC layer is queryable as well or not. Defaults to &#x60;false&#x60;.* @return {boolean} At least one OGC layer is in range.* @export*/isAnyOGCLayerInRange(res, queryableOnly &#x3D; false) {return !!(this.getInRangeOGCLayerNames(res, queryableOnly).length);}/*** Returns a list of OGC layer names that are in range of a given resolution.* If there&#x27;s no OGC layers defined, an empty array is returned.* @param {number} res Resolution.* @param {boolean} queryableOnly Whether to additionally check if the*     OGC layer is queryable as well or not. Defaults to &#x60;false&#x60;.* @return {Array.&lt;string&gt;} The OGC layer names that are in range.* @export*/getInRangeOGCLayerNames(res, queryableOnly &#x3D; false) {const layerNames &#x3D; [];if (this.ogcLayers) {for (const ogcLayer of this.ogcLayers) {const maxRes &#x3D; ogcLayer.maxResolution;const minRes &#x3D; ogcLayer.minResolution;const inMinRange &#x3D; minRes &#x3D;&#x3D;&#x3D; undefined || res &gt;&#x3D; minRes;const inMaxRange &#x3D; maxRes &#x3D;&#x3D;&#x3D; undefined || res &lt;&#x3D; maxRes;const inRange &#x3D; inMinRange &amp;&amp; inMaxRange;if (inRange &amp;&amp; (!queryableOnly || ogcLayer.queryable)) {layerNames.push(ogcLayer.name);}}}return layerNames;}/*** Returns the list of OGC layer names.* @param {boolean} queryableOnly Whether to additionally check if the*     OGC layer is queryable as well or not. Defaults to &#x60;false&#x60;.* @return {Array.&lt;string&gt;} The OGC layer names.* @export*/getOGCLayerNames(queryableOnly &#x3D; false) {const layerNames &#x3D; [];if (this.ogcLayers) {for (const ogcLayer of this.ogcLayers) {if (!queryableOnly || ogcLayer.queryable) {layerNames.push(ogcLayer.name);}}}return layerNames;}/*** Returns the filtrable OGC layer name. This methods asserts that* the name exists and is filtrable.* @return {string} OGC layer name.* @export*/getFiltrableOGCLayerName() {googAsserts.assert(this.filtrable);const layerNames &#x3D; this.getOGCLayerNames();googAsserts.assert(layerNames.length &#x3D;&#x3D;&#x3D; 1);return layerNames[0];}/*** Loop in the attributes of the data source. Update the &#x60;geometryName&#x60;* property on the first geometry attribute found. If none is found, then* the default geometry name is set.* @private*/updateGeometryNameFromAttributes_() {let geometryName &#x3D; exports.DEFAULT_GEOMETRY_NAME_;if (this.attributes) {for (const attribute of this.attributes) {if (attribute.type &#x3D;&#x3D;&#x3D; ngeoFormatAttributeType.GEOMETRY) {geometryName &#x3D; attribute.name;break;}}}this.geometryName_ &#x3D; geometryName;}/*** @param {!ngeox.datasource.OGC} dataSource Remote data source to*     compare with this one.* @return {boolean} Whether the two data sources have the same active*     dimensions. If both have no dimensions, they are considered to be*     sharing the same dimensions.* @export* @override*/haveTheSameActiveDimensions(dataSource) {let share &#x3D; true;const myActive &#x3D; this.activeDimensions;const itsActive &#x3D; dataSource.activeDimensions;for (const key in myActive) {if (myActive[key] !&#x3D;&#x3D; itsActive[key]) {share &#x3D; false;break;}}if (share) {for (const key in itsActive) {if (itsActive[key] !&#x3D;&#x3D; myActive[key]) {share &#x3D; false;break;}}}return share;}}</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/camptocamp/ngeo/blob/60bd072/src/datasource/OGC.js#L16">src/datasource/OGC.js:16</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<dl class="tsd-comment-tags">
+							<dt>implements</dt>
+							<dd><p>{ngeox.datasource.OGC}</p>
+							</dd>
+						</dl>
+					</div>
+				</section>
+			</section>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="globals  ">
+						<a href="../globals.html"><em>Globals</em></a>
+					</li>
+					<li class="current tsd-kind-external-module">
+						<a href="_src_datasource_ogc_.html">"src/datasource/OGC"</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+					<li class=" tsd-kind-variable tsd-parent-kind-external-module">
+						<a href="_src_datasource_ogc_.html#exports" class="tsd-kind-icon">exports</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-module"><span class="tsd-kind-icon">Module</span></li>
+				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
+				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+				<li class="tsd-kind-enum-member"><span class="tsd-kind-icon">Enumeration member</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-enum"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-enum"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-interface"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-interface"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class"><span class="tsd-kind-icon">Accessor</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-class"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
+				<li class="tsd-kind-call-signature tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="../assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="../assets/js/search.js"><' + '/script>');</script>
+</body>
+</html>

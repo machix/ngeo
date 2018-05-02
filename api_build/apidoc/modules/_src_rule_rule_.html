@@ -1,0 +1,190 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>&quot;src/rule/Rule&quot; | ngeo</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.js" data-base="..">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="../index.html" class="title">ngeo</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+							<input type="checkbox" id="tsd-filter-only-exported" />
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="../globals.html">Globals</a>
+				</li>
+				<li>
+					<a href="_src_rule_rule_.html">&quot;src/rule/Rule&quot;</a>
+				</li>
+			</ul>
+			<h1>External module &quot;src/rule/Rule&quot;</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<section class="tsd-panel-group tsd-index-group">
+				<h2>Index</h2>
+				<section class="tsd-panel tsd-index-panel">
+					<div class="tsd-index-content">
+						<section class="tsd-index-section ">
+							<h3>Variables</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-variable tsd-parent-kind-external-module"><a href="_src_rule_rule_.html#exports" class="tsd-kind-icon">exports</a></li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Variables</h2>
+				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-external-module">
+					<a name="exports" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> exports</h3>
+					<div class="tsd-signature tsd-kind-icon">exports<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">exports</span><span class="tsd-signature-symbol"> =&nbsp;class {/*** The abstract class for all filter rules.** Rules are used to define filters that can be applied on data sources.* A rule is usually a combination of 3 things:** - a property name, for example &#x27;city_name&#x27;* - an operator, for example &#x27;is equal to&#x27;* - and an expression, for example &#x27;Chicoutimi&#x27;.** A rule is useful to hold those properties and change them on the fly.* For example, changing an operator from &#x27;is equal to&#x27; to &#x27;like&#x27;.** Also, a rule is especially useful for its &#x60;value&#x60; getter, which returns* the combination of properties described above or &#x60;null&#x60; if there are some* missing.  The &#x60;value&#x60; getter can be watched and used when the value is* not null.** When the operator is &#x60;between&#x60;, the &#x60;lowerBoundary&#x60; and &#x60;upperBoundary&#x60;* properties are used instead of &#x60;expression&#x60;.** @struct* @param {!ngeox.rule.RuleOptions} options Options.*/constructor(options) {// &#x3D;&#x3D;&#x3D; DYNAMIC properties (i.e. that can change / be watched &#x3D;&#x3D;&#x3D;/*** Whether the rule is active or not. Used by the &#x60;ngeo-rule&#x60; component.* Defaults to &#x60;false&#x60;.* @type {boolean}* @private*/this.active_ &#x3D; options.active &#x3D;&#x3D;&#x3D; true;/*** The expression of the rule. The expression and boundaries are mutually* exclusives.** Note: exported (instead of private) due to the problem with the* compiler. See the getter/setter methods below...  As a setter, the* &#x60;expression&#x60; property would support being bond to an &#x60;ng-model&#x60;. Without* it, it can&#x27;t unless we expose the property directly.** @type {?number|string}* @export*/this.expression &#x3D; options.expression !&#x3D;&#x3D; undefined ?options.expression : null;/*** The lower boundary of the rule. The expression and boundaries are* mutually exclusives.* @type {?number}* @private*/this.lowerBoundary_ &#x3D; options. lowerBoundary !&#x3D;&#x3D; undefined ?options.lowerBoundary : null;/*** The rule operator.* @type {?string}* @private*/this.operator_ &#x3D; options.operator || null;/*** The upper boundary of the rule. The expression and boundaries are* mutually exclusives.* @type {?number}* @private*/this.upperBoundary_ &#x3D; options. upperBoundary !&#x3D;&#x3D; undefined ?options.upperBoundary : null;// &#x3D;&#x3D;&#x3D; STATIC properties (i.e. that never change) &#x3D;&#x3D;&#x3D;/*** Whether the rule is a custom one or not.* @type {boolean}* @private*/this.isCustom_ &#x3D; options.isCustom !&#x3D;&#x3D; false;/*** The human-readable name of the rule.* @type {string}* @private*/this.name_ &#x3D; options.name;/*** A list of rule operators.* @type {?Array.&lt;string&gt;}* @private*/this.operators_ &#x3D; options.operators || null;/*** The property name (a.k.a. the attribute name).* @type {string}* @private*/this.propertyName_ &#x3D; options.propertyName;/*** The type of rule.* @type {string}* @private*/this.type_ &#x3D; googAsserts.assert(options.type);// &#x3D;&#x3D;&#x3D; Other properties &#x3D;&#x3D;&#x3D;/*** @type {Array.&lt;!ol.EventsKey&gt;}* @protected*/this.listenerKeys &#x3D; [];}// &#x3D;&#x3D;&#x3D; Dynamic property getters/setters &#x3D;&#x3D;&#x3D;/*** @return {boolean} Active* @export*/get active() {return this.active_;}/*** @param {boolean} active Active* @export*/set active(active) {this.active_ &#x3D; active;}/*** The &#x60;expression&#x60; property does not have conventionnal getter/setters* method because of a limitation of the compiler. It doesn&#x27;t support* yet having such methods being extended in child classes.** See: https://github.com/google/closure-compiler/issues/1089** @return {?number|string} Expression* @export*/getExpression() {return this.expression;}/*** @param {?number|string} expression Expression* @export*/setExpression(expression) {this.expression &#x3D; expression;}/*** @return {?number} Lower boundary* @export*/get lowerBoundary() {return this.lowerBoundary_;}/*** @param {?number} lowerBoundary Lower boundary* @export*/set lowerBoundary(lowerBoundary) {this.lowerBoundary_ &#x3D; lowerBoundary;}/*** @return {?string} Operator* @export*/get operator() {return this.operator_;}/*** @param {?string} operator Operator* @export*/set operator(operator) {this.operator_ &#x3D; operator;}/*** @return {?number} Upper boundary* @export*/get upperBoundary() {return this.upperBoundary_;}/*** @param {?number} upperBoundary Upper boundary* @export*/set upperBoundary(upperBoundary) {this.upperBoundary_ &#x3D; upperBoundary;}// &#x3D;&#x3D;&#x3D; Static property getters/setters &#x3D;&#x3D;&#x3D;/*** @return {boolean} Is custom.* @export*/get isCustom() {return this.isCustom_;}/*** @return {string} name* @export*/get name() {return this.name_;}/*** @return {?Array.&lt;string&gt;} Operators* @export*/get operators() {return this.operators_;}/*** @return {string} Property name* @export*/get propertyName() {return this.propertyName_;}/*** @return {string} Type* @export*/get type() {return this.type_;}// &#x3D;&#x3D;&#x3D; Calculated property getters &#x3D;&#x3D;&#x3D;/*** @return {?ngeox.rule.RuleSimpleValue|ngeox.rule.RuleRangeValue} Value.* @export*/get value() {let value &#x3D; null;const expression &#x3D; this.getExpression();const lowerBoundary &#x3D; this.lowerBoundary;const operator &#x3D; this.operator;const propertyName &#x3D; this.propertyName;const upperBoundary &#x3D; this.upperBoundary;if (operator) {if (operator &#x3D;&#x3D;&#x3D; exports.OperatorType.BETWEEN ||operator &#x3D;&#x3D;&#x3D; exports.TemporalOperatorType.DURING) {if (lowerBoundary !&#x3D;&#x3D; null &amp;&amp; upperBoundary !&#x3D;&#x3D; null) {value &#x3D; {operator,lowerBoundary,propertyName,upperBoundary};}} else {if (expression !&#x3D;&#x3D; null) {value &#x3D; {expression,operator,propertyName};}}}return value;}// &#x3D;&#x3D;&#x3D; Other utility methods &#x3D;&#x3D;&#x3D;/*** Reset the following properties to &#x60;null&#x60;: expression, lowerBoundary,* upperBoundary.* @export*/reset() {if (this.getExpression() !&#x3D;&#x3D; null) {this.setExpression(null);}if (this.lowerBoundary !&#x3D;&#x3D; null) {this.lowerBoundary &#x3D; null;}if (this.upperBoundary !&#x3D;&#x3D; null) {this.upperBoundary &#x3D; null;}}/*** @export*/destroy() {this.listenerKeys.forEach(olEvents.unlistenByKey);this.listenerKeys.length &#x3D; 0;}}</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/camptocamp/ngeo/blob/60bd072/src/rule/Rule.js#L10">src/rule/Rule.js:10</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<dl class="tsd-comment-tags">
+							<dt>implements</dt>
+							<dd><p>{ngeox.rule.Rule}</p>
+							</dd>
+						</dl>
+					</div>
+				</section>
+			</section>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="globals  ">
+						<a href="../globals.html"><em>Globals</em></a>
+					</li>
+					<li class="current tsd-kind-external-module">
+						<a href="_src_rule_rule_.html">"src/rule/<wbr>Rule"</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+					<li class=" tsd-kind-variable tsd-parent-kind-external-module">
+						<a href="_src_rule_rule_.html#exports" class="tsd-kind-icon">exports</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-module"><span class="tsd-kind-icon">Module</span></li>
+				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
+				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+				<li class="tsd-kind-enum-member"><span class="tsd-kind-icon">Enumeration member</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-enum"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-enum"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-interface"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-interface"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class"><span class="tsd-kind-icon">Accessor</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-class"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
+				<li class="tsd-kind-call-signature tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="../assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="../assets/js/search.js"><' + '/script>');</script>
+</body>
+</html>
