@@ -10,6 +10,7 @@
 
 import 'gmf/controllers/desktop.scss';
 import gmfControllersAbstractDesktopController from 'gmf/controllers/AbstractDesktopController.js';
+import bootstrap from 'gmf/controllers/bootstrap.js';
 import appBase from '../appmodule.js';
 import ngeoProjEPSG2056 from 'ngeo/proj/EPSG2056.js';
 import ngeoProjEPSG21781 from 'ngeo/proj/EPSG21781.js';
@@ -128,5 +129,7 @@ exports.module.run(/* @ngInject */ ($templateCache) => {
 });
 
 exports.module.controller('DesktopController', exports);
+
+bootstrap(exports.module, 'desktop');
 
 export default exports;
